@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 export type RuleSection = {
   id: string;
@@ -21,19 +22,19 @@ export type RuleChapter = {
 
 type Props = {
   open: boolean;
-  title: string;
-  chapters: RuleChapter[];
   onClose: () => void;
 };
 
-export default function ModernRulesModal({
-  open,
-  title,
-  chapters,
-  onClose,
-}: Props) {
+export default function ModernRulesModal({ open, onClose }: Props) {
+  const { t } = useTranslation();
   const [activeChapter, setActiveChapter] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
+
+  // Récupération des données via i18next
+  const title = t("tutorial.title");
+  const chapters = t("tutorial.chapters", {
+    returnObjects: true,
+  }) as RuleChapter[];
 
   // Prevent hydration mismatch
   useEffect(() => {
@@ -59,7 +60,8 @@ export default function ModernRulesModal({
   }, [open, onClose]);
 
   if (!isMounted || !open) return null;
-  if (!chapters || !chapters.length) return null;
+  // Vérification de sécurité si les chapitres ne sont pas chargés correctement
+  if (!chapters || !Array.isArray(chapters) || !chapters.length) return null;
 
   const currentChapter = chapters[activeChapter];
 
@@ -87,9 +89,9 @@ export default function ModernRulesModal({
           <button
             onClick={onClose}
             className="rounded-xl px-4 py-2 text-slate-200 bg-slate-800 border border-slate-600 hover:bg-slate-700 transition-colors"
-            aria-label="Fermer"
+            aria-label={t("tutorial.close")}
           >
-            ✕ Fermer
+            {t("tutorial.close")}
           </button>
         </div>
 
@@ -97,25 +99,24 @@ export default function ModernRulesModal({
           {/* Chapter Navigation */}
           <div className="w-64 border-r border-slate-700/70 bg-slate-900/50 p-4 overflow-y-auto">
             <h3 className="text-sm font-semibold text-slate-300 mb-3 uppercase tracking-wide">
-              Chapitres
+              {t("tutorial.chaptersTitle")}
             </h3>
             <nav className="space-y-2">
               {(chapters || []).map((chapter, index) => (
                 <button
                   key={`chapter-nav-${index}-${chapter.key}`}
                   onClick={() => setActiveChapter(index)}
-                  className={`w-full text-left px-3 py-3 rounded-xl transition-all duration-200 ${
-                    index === activeChapter
-                      ? "bg-blue-600 text-white shadow-lg"
-                      : "text-slate-300 hover:bg-slate-800/60 hover:text-slate-100"
-                  }`}
+                  className={`w-full text-left px-3 py-3 rounded-xl transition-all duration-200 ${index === activeChapter
+                    ? "bg-blue-600 text-white shadow-lg"
+                    : "text-slate-300 hover:bg-slate-800/60 hover:text-slate-100"
+                    }`}
                 >
                   <div className="font-medium text-sm">
                     {chapter?.title || ""}
                   </div>
                   <div className="text-xs opacity-75 mt-1">
                     {(chapter?.subtitle || "").replace(
-                      "Chapitre " + (index + 1) + " • ",
+                      t("tutorial.chapterPrefix", { number: index + 1 }),
                       "",
                     )}
                   </div>
@@ -201,7 +202,7 @@ export default function ModernRulesModal({
                   disabled={activeChapter === 0}
                   className="px-4 py-2 rounded-xl bg-slate-800 border border-slate-600 text-slate-200 hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
-                  ← Chapitre précédent
+                  {t("tutorial.previousChapter")}
                 </button>
 
                 <span className="text-slate-400 text-sm">
@@ -217,7 +218,7 @@ export default function ModernRulesModal({
                   disabled={activeChapter === chapters.length - 1}
                   className="px-4 py-2 rounded-xl bg-slate-800 border border-slate-600 text-slate-200 hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
-                  Chapitre suivant →
+                  {t("tutorial.nextChapter")}
                 </button>
               </div>
             </div>
@@ -227,3 +228,4 @@ export default function ModernRulesModal({
     </div>
   );
 }
+

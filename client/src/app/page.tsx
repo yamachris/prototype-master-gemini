@@ -1,16 +1,16 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import Loading from "../components/Loading";
 import MatchmakingModal from "../components/MatchmakingModal"; // import { gameSocket, MatchmakingStatusEvent } from "@/services/socket";
 import { gameSocket } from "@/services/socket";
 import { gameApi } from "@/services/api";
 import { useRouter } from "next/navigation";
 import { useTranslation } from "react-i18next";
-import "@/game-core/i18n/config";
+import "@/game-core/i18n/i18n";
 import { LanguageSelector } from "@/game-core/components/LanguageSelector";
 import ModernRulesModal from "@/game-core/components/ModernRulesModal";
-import { tutorialTitle, tutorialChapters } from "@/data/tutorialData";
+
 
 export default function Home() {
   const isProd = process.env.NODE_ENV === "production";
@@ -28,8 +28,7 @@ export default function Home() {
   const [showRules, setShowRules] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
-  // Modern rules structure with complete chapters
-  const memoizedTutorialChapters = useMemo(() => tutorialChapters, []);
+
 
   // Prevent hydration mismatch
   useEffect(() => {
@@ -86,7 +85,7 @@ export default function Home() {
 
   const handleStartSoloGame = async () => {
     if (!playerNickname.trim()) {
-      setError("Please enter your nickname");
+      setError(t("home.errors.enterNickname"));
       return;
     }
     try {
@@ -109,7 +108,7 @@ export default function Home() {
       }
     } catch (error) {
       console.error("Error starting solo game:", error);
-      setError("Échec du lancement du jeu solo. Veuillez réessayer.");
+      setError(t("home.errors.soloFailed"));
       setIsLoading(false);
     } finally {
       // setIsLoading(false);
@@ -118,7 +117,7 @@ export default function Home() {
 
   const handleFindMatch = async () => {
     if (!playerNickname.trim()) {
-      setError("Veuillez entrer votre pseudo");
+      setError(t("home.errors.enterNickname"));
       return;
     }
 
@@ -146,7 +145,7 @@ export default function Home() {
       }
     } catch (error) {
       console.error("Error finding match:", error);
-      setError("Failed to find a match. Please try again.");
+      setError(t("home.errors.matchFailed"));
       setMatchmakingStatus("idle");
     } finally {
       setIsLoading(false);
@@ -352,7 +351,7 @@ export default function Home() {
                 </div>
                 <div className="mt-2 text-center">
                   <span className="text-transparent bg-gradient-to-r from-blue-300 to-purple-300 bg-clip-text text-lg font-semibold tracking-wider">
-                    Jeu de Cartes
+                    {t("home.cardGame")}
                   </span>
                 </div>
               </div>
@@ -360,8 +359,7 @@ export default function Home() {
           </div>
 
           <p className="text-gray-300 text-sm max-w-md mx-auto leading-relaxed">
-            {`Stratégie et chance se rencontrent dans ce jeu de cartes rapide. Défiez l'IA
-            ou affrontez de vrais joueurs en ligne !`}
+            {t("home.heroDescription")}
           </p>
 
           {/* Decorative card suits */}
@@ -383,10 +381,10 @@ export default function Home() {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-slate-100">
-                  Découvrez UNIT
+                  {t("home.title")}
                 </h2>
                 <p className="text-slate-400">
-                  Un jeu de cartes stratégique explosif
+                  {t("home.subtitle")}
                 </p>
               </div>
             </div>
@@ -449,7 +447,7 @@ export default function Home() {
                 className="group inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-semibold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-200 border border-blue-400/50"
               >
                 <span className="text-xl group-hover:animate-bounce">📖</span>
-                <span className="text-lg">Ouvrir le tutoriel complet</span>
+                <span className="text-lg">{t("home.openTutorial")}</span>
                 <span className="text-sm opacity-75">→</span>
               </button>
             </div>
@@ -460,8 +458,6 @@ export default function Home() {
         <ModernRulesModal
           open={showRules}
           onClose={() => setShowRules(false)}
-          title={tutorialTitle}
-          chapters={memoizedTutorialChapters}
         />
 
         <div className="grid md:grid-cols-2 gap-6">
@@ -471,19 +467,19 @@ export default function Home() {
               <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-3">
                 <span className="text-white font-bold">👤</span>
               </div>
-              <h2 className="text-xl font-bold text-white">Profil Joueur</h2>
+              <h2 className="text-xl font-bold text-white">{t("home.profile.title")}</h2>
             </div>
 
             {/* Player name input */}
             <div className="mb-4">
               <label className="block text-gray-300 text-sm mb-2">
-                Votre Pseudo :
+                {t("home.profile.nicknameLabel")}
               </label>
               <input
                 type="text"
                 value={playerNickname}
                 onChange={(e) => setPlayerNickname(e.target.value)}
-                placeholder="Entrez votre pseudo"
+                placeholder={t("home.profile.nicknamePlaceholder")}
                 className="w-full p-3 rounded-xl bg-slate-700/50 text-white border border-slate-600 focus:border-blue-500 focus:outline-none transition-colors"
                 disabled={matchmakingStatus === "waiting"}
               />
@@ -492,15 +488,15 @@ export default function Home() {
             {/* Player Statistics */}
             <div className="bg-slate-700/30 rounded-xl p-4">
               <h3 className="text-gray-300 text-sm font-medium mb-3">
-                Statistiques Joueur
+                {t("home.profile.statsTitle")}
               </h3>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-gray-400 text-xs">Parties Jouées</p>
+                  <p className="text-gray-400 text-xs">{t("home.profile.gamesPlayed")}</p>
                   <p className="text-white font-bold text-lg">0</p>
                 </div>
                 <div>
-                  <p className="text-gray-400 text-xs">Taux de Victoire</p>
+                  <p className="text-gray-400 text-xs">{t("home.profile.winRate")}</p>
                   <p className="text-white font-bold text-lg">0%</p>
                 </div>
               </div>
@@ -515,12 +511,10 @@ export default function Home() {
                 <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3">
                   <span className="text-white font-bold">🎲</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">Mode Solo</h2>
+                <h2 className="text-xl font-bold text-white">{t("home.modes.solo.title")}</h2>
               </div>
               <p className="text-blue-100 text-sm mb-4">
-                {`
-                Défiez l'IA dans un duel stratégique en tête-à-tête.
-                Parfait pour perfectionner vos compétences !`}
+                {t("home.modes.solo.description")}
               </p>
               <button
                 onClick={handleStartSoloGame}
@@ -529,8 +523,7 @@ export default function Home() {
                 }
                 className="w-full py-3 bg-white/20 hover:bg-white/30 text-white font-semibold rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm border border-white/20"
               >
-                {`
-                Jouer contre l'Ordinateur`}
+                {t("home.modes.solo.button")}
               </button>
             </div>
 
@@ -540,12 +533,10 @@ export default function Home() {
                 <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center mr-3">
                   <span className="text-white font-bold">🌍</span>
                 </div>
-                <h2 className="text-xl font-bold text-white">Mode En Ligne</h2>
+                <h2 className="text-xl font-bold text-white">{t("home.modes.online.title")}</h2>
               </div>
               <p className="text-purple-100 text-sm mb-4">
-                {`
-                Affrontez de vrais adversaires en ligne et prouvez vos compétences.
-                Le matchmaking trouvera l'adversaire parfait !`}
+                {t("home.modes.online.description")}
               </p>
               <button
                 onClick={handleFindMatch}
@@ -554,7 +545,7 @@ export default function Home() {
                 }
                 className="w-full py-3 bg-white/20 hover:bg-white/30 text-white font-semibold rounded-xl transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed backdrop-blur-sm border border-white/20"
               >
-                Trouver une Partie En Ligne
+                {t("home.modes.online.button")}
               </button>
             </div>
           </div>

@@ -1,4 +1,14 @@
 {
+  "matchmaking": {
+    "title": "Gegner gesucht",
+    "searching": "Suche läuft...",
+    "searchingRegions": "Suche in allen Regionen...",
+    "cancel": "Abbrechen"
+  },
+  "header": {
+    "waitingForSecondPlayer": "Warten auf zweiten Spieler...",
+    "criticalHealthWarning": "⚠️ Warnung: Kritische Lebenspunkte!"
+  },
   "game": {
     "turn": "Runde {{number}}",
     "discard": "Ablage",
@@ -75,14 +85,1152 @@
       }
     },
     "block": {
-      "title": "Mit Joker blocken?",
-      "description": "Spieler {{player}} greift dein {{target}} mit {{card}} an. Du kannst diesen Angriff mit einem Joker blocken.",
+      "title": "Mit Joker oder Lucky 7 blocken?",
+      "description": "Spieler {{player}} greift dein {{target}} mit {{card}} an. Du kannst diesen Angriff mit einem Joker oder einer Lucky 7 blocken.",
       "selectJoker": "Wähle einen Joker zum Verwenden:",
+      "selectCard": "Wähle eine Karte:",
       "inHand": "Auf der Hand",
       "inReserve": "In Reserve",
+      "inColumn": "In der Spalte",
       "block": "Angriff Blocken",
       "decline": "Angriff Zulassen",
       "noJokers": "Du hast keine Joker zum Blocken."
     }
+  },
+  "home": {
+    "presentation": {
+      "line1": "🎙️ \"Willkommen bei UNIT – einem explosiven strategischen Kartenspiel, bei dem jeder Spieler Armeen aufbaut, um... eine Revolution auszulösen.\"",
+      "line2": "🎙️ \"Mit einem einfachen Deck von 54 Karten stellst du Einheiten-Spalten zusammen – vom Ass bis zur 10 – um anzugreifen, zu verteidigen und das Schlachtfeld zu manipulieren.\"",
+      "line3": "🎙️ \"Vorsicht: Spezialkarten wie Könige, Buben oder Joker können alles auf den Kopf stellen.\"",
+      "line4": "🎙️ \"Das Ziel? Die Lebenspunkte deines Gegners auf Null reduzieren... oder eine Revolution auslösen, die 10 Schaden auf einen Schlag verursacht.\"",
+      "line5": "🎙️ \"Leicht zu verstehen, schwer zu meistern... und jedes Spiel ist einzigartig.\"",
+      "line6": "🎙️ \"Bereit, den Lauf der Geschichte zu ändern? Es ist Zeit, UNIT beizutreten.\""
+    },
+    "title": "Entdecke UNIT",
+    "subtitle": "Ein explosives strategisches Kartenspiel",
+    "openTutorial": "Vollständiges Tutorial öffnen",
+    "cardGame": "Kartenspiel",
+    "heroDescription": "Strategie und Glück treffen in diesem rasanten Kartenspiel aufeinander. Fordere die KI heraus oder tritt online gegen echte Spieler an!",
+    "profile": {
+      "title": "Spielerprofil",
+      "nicknameLabel": "Dein Spitzname:",
+      "nicknamePlaceholder": "Gib deinen Spitznamen ein",
+      "statsTitle": "Spielerstatistiken",
+      "gamesPlayed": "Gespielte Spiele",
+      "winRate": "Siegesrate"
+    },
+    "modes": {
+      "solo": {
+        "title": "Solo-Modus",
+        "description": "Fordere die KI in einem strategischen Kopf-an-Kopf-Duell heraus. Perfekt, um deine Fähigkeiten zu verbessern!",
+        "button": "Gegen den Computer spielen"
+      },
+      "online": {
+        "title": "Online-Modus",
+        "description": "Tritt online gegen echte Gegner an und beweise dein Können. Das Matchmaking findet den perfekten Gegner!",
+        "button": "Online-Spiel finden"
+      }
+    },
+    "errors": {
+      "enterNickname": "Bitte gib deinen Spitznamen ein",
+      "soloFailed": "Solo-Spiel konnte nicht gestartet werden. Bitte versuche es erneut.",
+      "matchFailed": "Kein Spiel gefunden. Bitte versuche es erneut."
+    }
+  },
+  "tutorial": {
+    "close": "✕ Schließen",
+    "chapterPrefix": "Kapitel {{number}} • ",
+    "chaptersTitle": "Kapitel",
+    "previousChapter": "← Vorheriges Kapitel",
+    "nextChapter": "Nächstes Kapitel →",
+    "title": "📖 Vollständige UNIT Spielregeln",
+    "chapters": [
+      {
+        "key": "chapter1",
+        "title": "Einen Zug in UNIT verstehen",
+        "subtitle": "Kapitel 1 • Grundlagen des Spiels",
+        "sections": [
+          {
+            "id": "debut-partie",
+            "icon": "🎬",
+            "title": "Spielstart",
+            "content": [
+              "Jeder Spieler beginnt mit einem persönlichen Deck von 54 Karten.",
+              "Sie ziehen zu Beginn des Spiels 7 Karten.",
+              "Von diesen 7 Karten werden 2 Karten ihrer Wahl verdeckt in die Reserve auf das Spielfeld gelegt.",
+              "Der Spieler behält also 5 Karten auf der Hand und 2 Karten in der Reserve."
+            ],
+            "highlight": "🧠 Wichtige Erinnerung: Die Reserve ist eine strategische Erweiterung der Hand, sie bleibt verdeckt und während des Spiels zugänglich."
+          },
+          {
+            "id": "structure-tour",
+            "icon": "🔁",
+            "title": "Zugstruktur",
+            "content": [
+              "Jeder Zug folgt immer der gleichen Reihenfolge."
+            ]
+          },
+          {
+            "id": "cas-1",
+            "icon": "➤",
+            "title": "Fall 1: Der Spieler beginnt seinen Zug mit 7 Karten",
+            "subtitle": "(5 auf der Hand + 2 in der Reserve)",
+            "content": [
+              "Pflichtablage: Der Spieler muss 1 Karte aus seiner Hand ablegen (seine Wahl).",
+              "Ziehen: Dann zieht er 1 Karte, um wieder auf insgesamt 7 Karten zu kommen.",
+              "Aktionsphase: Er kann dann:",
+              "• Karten legen, um Einheiten zu bauen,",
+              "• Eine Spezialkarte verwenden (Bube, König, etc.),",
+              "• Angreifen oder einen Effekt aktivieren.",
+              "Zugende: Sobald seine Aktionen beendet sind, kündigt der Spieler das Ende seines Zuges an."
+            ],
+            "warning": "🛑 Wenn der Spieler keine Aktion ausführen kann oder will, muss er zwingend das Ende seines Zuges anzeigen."
+          },
+          {
+            "id": "cas-2",
+            "icon": "➤",
+            "title": "Fall 2: Der Spieler hat zu Beginn des Zuges weniger als 7 Karten",
+            "subtitle": "(weil er zuvor Karten gespielt hat)",
+            "content": [
+              "Der Spieler zieht sofort die Anzahl an Karten, die nötig ist, um wieder auf 7 Karten zu kommen (Hand + Reserve).",
+              "Dann tritt er in die Aktionsphase ein: Er kann spielen, angreifen, einen Effekt aktivieren...",
+              "Zugende: Er beendet seinen Zug wie gewohnt."
+            ]
+          },
+          {
+            "id": "rappel-general",
+            "icon": "📌",
+            "title": "Allgemeine Erinnerung",
+            "content": [
+              "Spieler können nie mehr als 7 Karten haben (5 auf der Hand + 2 in der Reserve).",
+              "Wenn zu Beginn des Zuges 7: muss 1 Karte ablegen vor dem Ziehen.",
+              "Wenn Karten gespielt wurden: zieht direkt, ohne Ablage.",
+              "Jeden Zug kann ein Spieler handeln oder passen, muss es aber anzeigen."
+            ]
+          }
+        ]
+      },
+      {
+        "key": "chapter2",
+        "title": "Die Aktionsphase",
+        "subtitle": "Kapitel 2 • Aktionen und Strategien",
+        "sections": [
+          {
+            "id": "introduction-phase",
+            "icon": "🎯",
+            "title": "Die Aktionsphase",
+            "content": [
+              "Während seines Zuges, nach dem Ziehen, tritt der Spieler in seine Aktionsphase ein.",
+              "Er kann mehrere Arten von Aktionen ausführen, in der Reihenfolge, die er wünscht, solange er die folgenden Grenzen respektiert:"
+            ]
+          },
+          {
+            "id": "actions-disponibles",
+            "icon": "🔄",
+            "title": "Verfügbare Aktionen",
+            "content": [
+              "Jede Aktion kostet 1 Aktion, außer in Sonderfällen.",
+              "Hier ist die Liste der Hauptaktionen, die ein Spieler während seines Zuges ausführen kann:"
+            ]
+          },
+          {
+            "id": "action-construire",
+            "icon": "🔹",
+            "title": "1. Eine Karte spielen, um eine Einheit zu bauen",
+            "content": [
+              "Der Spieler legt eine Karte in die entsprechende Spalte (nach Farbe).",
+              "Einheiten müssen in aufsteigender Reihenfolge platziert werden, vom Ass bis zur 10."
+            ],
+            "highlight": "➡️ ✅ Diese Aktion ermöglicht den Fortschritt in Richtung eines Angriffs oder einer Revolution."
+          },
+          {
+            "id": "action-speciale",
+            "icon": "🔹",
+            "title": "2. Eine Spezialkarte spielen (Bube, König, Dame)",
+            "content": [
+              "Der Spieler kann eine Spezialkarte beschwören durch:",
+              "• Opfer (bereits platzierte Karten),",
+              "• Verwendung eines Jokers,",
+              "• Oder einer Lucky 7.",
+              "Die Beschwörung zählt als eine Aktion."
+            ],
+            "highlight": "💡 Ausnahme: Wenn ein Bube durch Joker oder Opfer beschworen wird, kann er sofort im selben Zug angreifen. (Andernfalls ist er passiv bis zum nächsten Zug.)"
+          },
+          {
+            "id": "action-attaquer",
+            "icon": "🔹",
+            "title": "3. Mit einer Einheit angreifen",
+            "content": [
+              "Eine Einheit kann nur einmal in ihrer Kategorie angreifen.",
+              "Dieser Angriff kostet 1 Aktion."
+            ],
+            "warning": "⚠️ Nach einem Angriff wird die gesamte Einheitenkategorie deaktiviert, auch wenn der Angriff geblockt wird."
+          },
+          {
+            "id": "action-echanger",
+            "icon": "🔹",
+            "title": "4. Eine Karte mit einem bereits platzierten Joker tauschen",
+            "content": [
+              "Wenn ein Joker auf dem Feld liegt, um eine Karte zu ersetzen, kann der Spieler ihn gegen die echte Karte (gleiche Farbe und Wert) austauschen.",
+              "Der Joker kehrt je nach Herkunft auf die Hand oder in die Reserve zurück."
+            ],
+            "highlight": "➡️ ✅ Dieser Tausch zählt als eine Aktion."
+          },
+          {
+            "id": "defense",
+            "icon": "🛡️",
+            "title": "5. Verteidigung während des gegnerischen Zuges",
+            "content": [
+              "Obwohl die Verteidigung nicht während der Aktionsphase des Spielers stattfindet, ist es wichtig, sie zu kennen.",
+              "Ein Spieler kann den Angriff eines Gegners blocken:",
+              "• Wenn er einen JOKER besitzt (auf der Hand oder in der Reserve) → er spielt ihn sofort, er blockt den Angriff.",
+              "• Wenn eine Lucky 7 in der angegriffenen Spalte an der richtigen Stelle (nach der 6) vorhanden ist, dann:",
+              "  - Blockt sie einen einzelnen Angriff.",
+              "  - Sie wird dann deaktiviert, bis die Spalte zerstört und neu aufgebaut wird."
+            ],
+            "highlight": "🧠 Zu merken: Ein Joker kann jeden Angriff blocken, unabhängig von der Spalte, außer einer Revolution. Jede Verteidigung ist einmal gültig, dann geht die Karte auf den Friedhof oder wird inaktiv."
+          },
+          {
+            "id": "limites-action",
+            "icon": "🚫",
+            "title": "Aktionslimits",
+            "content": [
+              "Der Spieler kann so viele Aktionen ausführen, wie er möchte, solange er Karten dafür hat.",
+              "Jedoch:",
+              "• Er kann nur einen Joker-Tausch pro Zug vornehmen.",
+              "• Er kann nur einmal pro Einheitenkategorie angreifen.",
+              "• Einige Karten (Bube) greifen nicht sofort an, außer in Sonderfällen."
+            ]
+          },
+          {
+            "id": "fin-tour",
+            "icon": "🔚",
+            "title": "Zugende",
+            "content": [
+              "Sobald alle Aktionen beendet sind, kündigt der Spieler das Ende seines Zuges an.",
+              "Wenn er keine Aktion ausführt, muss er dennoch das Ende seines Zuges erklären."
+            ]
+          }
+        ]
+      },
+      {
+        "key": "chapter3",
+        "title": "Aktivatoren: Lucky 7 & Joker",
+        "subtitle": "Kapitel 3 • Aktivierungsmechaniken",
+        "sections": [
+          {
+            "id": "introduction-activateurs",
+            "icon": "🔑",
+            "title": "Aktivatoren: Lucky 7 & Joker",
+            "content": [
+              "In UNIT reicht es nicht aus, Karten in der richtigen Reihenfolge zu legen, um eine Einheitenspalte zu bauen. Du musst die Spalte mit einer Spezialkarte namens Aktivator aktivieren.",
+              "Es gibt zwei Arten von Aktivatoren:",
+              "• 🟦 Die Lucky 7",
+              "• 🃏 Der Joker"
+            ]
+          },
+          {
+            "id": "comment-activer",
+            "icon": "🧱",
+            "title": "Wie aktiviert man eine Spalte?",
+            "content": [
+              "Um eine Spalte zu beginnen, musst du ein Ass legen und dann schrittweise bis zur 6 aufsteigen.",
+              "Dieser Aktivator wird in eine spezielle Zone der Spalte gelegt, genannt reserveSuitColonne."
+            ],
+            "highlight": "🧠 Aber um über die 6 hinauszugehen (und die 8, 9, 10 zu spielen), ist es zwingend erforderlich, einen Aktivator an Ort und Stelle zu haben."
+          },
+          {
+            "id": "fonctionnement-activateur",
+            "icon": "⚙️",
+            "title": "Wie ein Aktivator funktioniert",
+            "content": [
+              "Wenn eine Lucky 7 oder ein Joker als Aktivator gespielt wird:",
+              "• Wird er neben die Spalte in die reserveSuitColonne gelegt.",
+              "• Er schaltet den Aufstieg zur 8, 9, 10 frei.",
+              "• Er bleibt aktiv, solange die Spalte nicht zerstört wird."
+            ]
+          },
+          {
+            "id": "exemple-activation",
+            "icon": "➕",
+            "title": "Beispiel",
+            "content": [
+              "Du hast Karten von Ass bis 6 in Karo.",
+              "Du legst eine Lucky 7 in Karo in die reserveSuitColonne.",
+              "Du kannst jetzt die 8, 9, 10 in Karo legen."
+            ]
+          },
+          {
+            "id": "conditions-importantes",
+            "icon": "🛑",
+            "title": "Achte auf Bedingungen!",
+            "content": [
+              "Ein Joker oder jede Lucky 7 kann zu Beginn des Spiels gespielt werden, um das Spiel zu eröffnen, auch wenn die Farbe nicht übereinstimmt."
+            ],
+            "highlight": "✅ Dies ermöglicht es, voranzukommen und deine Strategie anzupassen.",
+            "warning": "❌ Aber um von Karte 6 auf 8 in einer Spalte zu gelangen, musst du zwingend die korrekte Lucky 7 der gleichen Farbe wie die Spalte haben."
+          },
+          {
+            "id": "echange-activateur",
+            "icon": "♻️",
+            "title": "Den Aktivator tauschen",
+            "content": [
+              "Wenn du die falsche 7 oder einen Joker in die reserveSuitColonne gelegt hast, keine Panik:",
+              "• Du kannst den Aktivator gegen die korrekte Lucky 7 der Spaltenfarbe tauschen, wenn du sie auf die Hand oder in die Reserve bekommst.",
+              "• Der vorherige Joker oder die 7 kehrt an die ursprüngliche Position zurück.",
+              "• Dieser Tausch kostet eine Aktion.",
+              "• Er ermöglicht es, den Fortschritt zum oberen Ende der Spalte freizuschalten (und möglicherweise eine Revolution vorzubereiten)."
+            ]
+          },
+          {
+            "id": "attaque-activateur",
+            "icon": "⚔️",
+            "title": "Was passiert bei einem Angriff?",
+            "content": [
+              "Wenn ein Bube eine mit einer 7 oder einem Joker aktivierte Spalte angreift:",
+              "• Gehen alle Karten der Spalte, einschließlich des Aktivators, auf den Friedhof.",
+              "• Dies macht den Fortschritt der Spalte zunichte.",
+              "• Du musst von vorne beim Ass beginnen."
+            ]
+          },
+          {
+            "id": "activateurs-cartes-speciales",
+            "icon": "👑",
+            "title": "Aktivatoren und Spezialkarten (Figuren)",
+            "content": [
+              "Lucky 7s und Joker können auch verwendet werden, um Figuren zu beschwören:",
+              "• König → 7 oder Joker → Friedhof",
+              "• Dame → 7 oder Joker → Friedhof",
+              "• Bube → 7 oder Joker → Friedhof"
+            ],
+            "warning": "❗ Sobald eine 7 oder ein Joker verwendet wird, um eine Spezialkarte zu spielen, wird sie sofort auf den Friedhof geschickt."
+          },
+          {
+            "id": "resume-activateurs",
+            "icon": "🧠",
+            "title": "Zusammenfassung zum Merken",
+            "content": [
+              "▶️ Eine Spalte aktivieren = Ass + 7 oder Joker in der reserveSuitColonne.",
+              "🔒 Um eine 8 zu legen, brauchst du die Lucky 7 der gleichen Farbe.",
+              "🔁 Du kannst den Aktivator bei Bedarf tauschen (einzelne Aktion).",
+              "💥 Bei Angriff durch Bube werden die Spalte + der Aktivator zerstört.",
+              "👑 Aktivatoren können auch verwendet werden, um einen König, eine Dame oder einen Buben zu spielen, gehen dann aber auf den Friedhof."
+            ]
+          }
+        ]
+      },
+      {
+        "key": "chapter4",
+        "title": "Die Revolution - Der Ultimative Angriff",
+        "subtitle": "Kapitel 4 • Der Höhepunkt des Spiels",
+        "sections": [
+          {
+            "id": "revolution-intro",
+            "icon": "🏆",
+            "title": "Die Revolution – Der Ultimative Angriff",
+            "content": [
+              "Die Revolution ist das höchste strategische Ziel in UNIT.",
+              "Es ist der mächtigste Angriff im Spiel, der ein ganzes Spiel drehen kann, wenn er gut vorbereitet ist.",
+              "Sie symbolisiert den perfekten Abschluss einer vollständigen Spalte und die Ausführung eines makellosen Plans."
+            ]
+          },
+          {
+            "id": "revolution-conditions",
+            "icon": "🧱",
+            "title": "Zwingende Bedingungen für eine Revolution",
+            "content": [
+              "Um eine Revolution zu starten, musst du alle diese Bedingungen erfüllen:",
+              "",
+              "✅ Alle 10 Karten der gleichen Farbe in Reihenfolge gelegt haben, von Ass bis 10",
+              "✅ Keinen Joker in der Spalte verwendet haben (kein Ersatz)",
+              "✅ Die Spalte korrekt mit der richtigen Lucky 7 der Farbe aktiviert haben",
+              "✅ Die 10 gelegt haben (diese letzte löst die Revolution automatisch aus)"
+            ]
+          },
+          {
+            "id": "revolution-effects",
+            "icon": "🎯",
+            "title": "Sofortige Effekte der Revolution",
+            "content": [
+              "💥 Der gegnerische König der gleichen Farbe wird zerstört, auch wenn er noch im Spiel ist.",
+              "💥 Der Gegner erleidet 10 direkten Schaden, ohne Verteidigungsmöglichkeit.",
+              "🪦 Die gesamte Spalte (Ass bis 10) wird nach dem Angriff auf den Friedhof geschickt.",
+              "❗ Kein Joker, Lucky 7, Bube oder anderer Effekt kann eine Revolution blocken."
+            ]
+          },
+          {
+            "id": "revolution-unstoppable",
+            "icon": "🛡️",
+            "title": "Warum die Revolution unaufhaltsam ist",
+            "content": [
+              "Die Revolution ist der einzige völlig unaufhaltsame Angriff im Spiel.",
+              "Sie ignoriert alle Verteidigungsmechanismen:",
+              "",
+              "✅ Ignoriert Könige",
+              "✅ Ignoriert Joker",
+              "✅ Ignoriert Lucky 7s",
+              "✅ Ignoriert Karten in der Reserve",
+              "✅ Ignoriert jede Gegenaktion",
+              "",
+              "Sie stellt ein seltenes, aber verheerendes Ereignis dar, das rigorose und geduldige Spieler belohnt."
+            ]
+          },
+          {
+            "id": "revolution-joker-case",
+            "icon": "⚠️",
+            "title": "Sonderfall: Joker in der Spalte",
+            "content": [
+              "Wenn ein einzelner Joker eine Karte in der Spalte ersetzt:",
+              "",
+              "❌ Die Revolution ist blockiert.",
+              "",
+              "Die Spalte gilt als unvollständig, auch wenn sie optisch fertig aussieht.",
+              "Du musst den Joker gegen die echte Karte tauschen (mit einer Aktion), um die Revolution freizuschalten."
+            ]
+          },
+          {
+            "id": "revolution-strategy",
+            "icon": "🧠",
+            "title": "Strategische Überlegung",
+            "content": [
+              "Der Joker ist eine nützliche, aber gefährliche Karte, um sie in eine Spalte zu legen, wenn du auf die Revolution abzielst.",
+              "Manchmal ist es besser, eine Aktion zu verzögern, als die Möglichkeit einer Revolution zu opfern.",
+              "Die Spalte rein zu halten, garantiert dir ein brutales und spektakuläres Ergebnis."
+            ]
+          },
+          {
+            "id": "revolution-perfect",
+            "icon": "🏅",
+            "title": "Die Perfekte Revolution",
+            "content": [
+              "Eine Perfekte Revolution tritt auf, wenn der Spieler eine Revolution auslöst, ohne einen anderen Angriff mit seinen Einheiten während des Spiels gemacht zu haben.",
+              "",
+              "🎖️ Sie zeugt von absoluter Tempo-Kontrolle, Geduld und einem reinen Spielstil.",
+              "Sie kann einen zu aggressiven Gegner überraschen und ihn mit einem Schlag eliminieren."
+            ]
+          },
+          {
+            "id": "revolution-summary",
+            "icon": "📌",
+            "title": "Kurzfassung",
+            "content": [
+              "🎯 Notwendige Karten: Ass bis 10, gleiche Farbe, kein Joker",
+              "🔧 Zwingende Aktivierung: Ja, mit entsprechender Lucky 7",
+              "⚡ Auslöser: Legen der 10",
+              "💥 Effekte: Zerstörung des Königs + 10 direkter Schaden",
+              "🛡️ Blockbar?: Nein, unmöglich",
+              "🪦 Konsequenzen: Gesamte Spalte auf den Friedhof",
+              "🏆 Strategischer Bonus: Perfekte Revolution, wenn kein anderer Angriff gemacht wurde"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "chapter5",
+        "title": "Verteidigung - Deine Lebenspunkte schützen",
+        "subtitle": "Kapitel 5 • Verteidigungsmechanismen",
+        "sections": [
+          {
+            "id": "defense-intro",
+            "icon": "🛡️",
+            "title": "Verteidigung – Deine Lebenspunkte und Einheiten schützen",
+            "content": [
+              "In UNIT ist die Verteidigung genauso wichtig wie der Angriff.",
+              "Bestimmte Karten und Positionen ermöglichen es, die Auswirkungen einer gegnerischen Aktion aufzuheben oder zu begrenzen."
+            ]
+          },
+          {
+            "id": "defense-objectives",
+            "icon": "🎯",
+            "title": "Ziel der Verteidigung",
+            "content": [
+              "Den Gegner daran hindern:",
+              "",
+              "• Direkten Schaden an deinen Lebenspunkten zu verursachen.",
+              "• Deine Einheiten oder Spezialkarten zu leicht zu zerstören.",
+              "• Deine Strategie zu brechen (z.B. verhindern, dass ein Bube eine Spalte räumt)."
+            ]
+          },
+          {
+            "id": "joker-defense",
+            "icon": "1️⃣",
+            "title": "Der Joker – Universeller Verteidiger",
+            "content": [
+              "🔹 Effekt: Der Joker kann jeden Angriff blocken, unabhängig von der Spalte oder der angreifenden Karte.",
+              "🔹 Limit: Er kann keine Revolution blocken.",
+              "",
+              "📋 Verwendung:",
+              "• Gespielt aus der Hand oder Reserve während des gegnerischen Zuges.",
+              "• Nach Gebrauch geht er sofort auf den Friedhof.",
+              "",
+              "💡 Tipp: Einen Joker auf der Hand zu behalten ist oft sicherer als ihn im Angriff zu verwenden."
+            ]
+          },
+          {
+            "id": "seven-defense",
+            "icon": "2️⃣",
+            "title": "Die Lucky 7 – Spaltenschild",
+            "content": [
+              "🔹 Effekt: Eine Lucky 7, die in einer Spalte an ihrer normalen Position (nach der 6) platziert ist, kann einen einzelnen Angriff auf diese Spalte blocken.",
+              "",
+              "📋 Bedingungen:",
+              "• Die 7 muss die gleiche Farbe wie die Spalte haben.",
+              "• Sie schützt nur die Spalte, in der sie platziert ist.",
+              "",
+              "⚡ Nach Gebrauch:",
+              "• Die 7 wird deaktiviert, bis die Spalte zerstört und neu aufgebaut wird.",
+              "• Sie bleibt physisch im Spiel, blockt aber nicht mehr.",
+              "",
+              "💡 Tipp: Eine gut positionierte 7 kann den Gegner zwingen, einen Angriff oder einen Joker zu verschwenden."
+            ]
+          },
+          {
+            "id": "defense-interactions",
+            "icon": "3️⃣",
+            "title": "Wichtige Interaktionen",
+            "content": [
+              "🔸 Klassische Einheit (1–6): Geblockt durch Joker ✅ | Geblockt durch Lucky 7 ✅",
+              "🔸 8 oder 9: Geblockt durch Joker ✅ | Geblockt durch Lucky 7 ✅",
+              "🔸 Bube: Geblockt durch Joker ✅ | Geblockt durch Lucky 7 ✅",
+              "🔸 König: Geblockt durch Joker ❌ | Geblockt durch Lucky 7 ❌",
+              "🔸 Joker: Geblockt durch Joker ✅ | Geblockt durch Lucky 7 ✅",
+              "🔸 Revolution (10): Geblockt durch Joker ❌ | Geblockt durch Lucky 7 ❌"
+            ]
+          },
+          {
+            "id": "defense-strategy",
+            "icon": "4️⃣",
+            "title": "Verteidigungsstrategie",
+            "content": [
+              "🎯 Antizipieren: Halte jeden Zug mindestens ein Verteidigungsmittel aktiv.",
+              "🎯 Schlüsselspalten schützen: Platziere eine Lucky 7 in der am weitesten fortgeschrittenen Spalte.",
+              "🎯 Gegnerische Entscheidungen erzwingen: Lass sie glauben, eine Spalte sei verwundbar, wenn sie geschützt ist.",
+              "🎯 Ressourcen verwalten: Ein zu früh verwendeter Joker kann das Spiel kosten."
+            ]
+          },
+          {
+            "id": "defense-summary",
+            "icon": "📌",
+            "title": "Kurzfassung",
+            "content": [
+              "🃏 Joker = universelle Verteidigung gegen alles außer Revolution.",
+              "7️⃣ Lucky 7 = lokale Verteidigung in ihrer Spalte.",
+              "🚫 Keine Karte blockt die Revolution."
+            ]
+          }
+        ]
+      },
+      {
+        "key": "chapter6",
+        "title": "Strategisches Mischen – Dein Deck neu aufbauen",
+        "subtitle": "Kapitel 6 • Das Strategische Mischen",
+        "sections": [
+          {
+            "id": "melange-intro",
+            "icon": "🔄",
+            "title": "Strategisches Mischen – Dein Deck neu aufbauen",
+            "content": [
+              "In UNIT ist es manchmal notwendig, Karten vom Friedhof mit dem Deck zu mischen, um weiterspielen zu können.",
+              "Diese Aktion, genannt strategisches Mischen, kann verwendet werden, um Schlüsselkarten zurückzuholen oder ein Feststecken zu vermeiden."
+            ]
+          },
+          {
+            "id": "quand-melanger",
+            "icon": "🎯",
+            "title": "Wann ein strategisches Mischen durchführen?",
+            "content": [
+              "Ein strategisches Mischen kann vor jeder anderen Aktion deines Zuges durchgeführt werden, wenn:",
+              "",
+              "• Du wichtige Karten wieder in dein Deck aufnehmen möchtest.",
+              "• Du in deinem Fortschritt feststeckst.",
+              "• Dein Deck noch nicht leer ist, du aber die Verteilung zurücksetzen möchtest."
+            ]
+          },
+          {
+            "id": "regles-melange",
+            "icon": "⚙️",
+            "title": "Regeln des strategischen Mischens",
+            "content": [
+              "📅 Zeitpunkt:",
+              "• Muss zu Beginn deines Zuges erfolgen, vor dem Ablegen oder Ziehen.",
+              "",
+              "🔄 Vorgehensweise:",
+              "• Du legst alle Karten aus deiner Hand ab.",
+              "• Die 2 Karten in der Reserve bleiben an ihrem Platz.",
+              "• Du mischst dein Deck und deinen Friedhof, um ein neues Deck zu bilden.",
+              "",
+              "🥇 Erstes Mal:",
+              "• Beim ersten strategischen Mischen des Spiels kannst du nach dem Mischen normal spielen.",
+              "",
+              "🔁 Folgende Male:",
+              "• Alle strategischen Mischvorgänge nach dem ersten zwingen dich, deinen Zug nach dem Mischen zu beenden (keine Aktion möglich)."
+            ]
+          },
+          {
+            "id": "limitations-melange",
+            "icon": "🚫",
+            "title": "Einschränkungen nach folgenden Mischvorgängen",
+            "content": [
+              "Wenn du nach dem ersten ein strategisches Mischen durchführst:",
+              "",
+              "❌ Du kannst in diesem Zug nicht angreifen.",
+              "❌ Du kannst keinen Joker verwenden, um dich im folgenden gegnerischen Zug zu verteidigen.",
+              "✅ Eine bereits aktive Lucky 7 auf dem Feld behält ihren Schutz."
+            ]
+          },
+          {
+            "id": "cas-particuliers",
+            "icon": "📌",
+            "title": "Sonderfälle",
+            "content": [
+              "🗂️ Leeres Deck:",
+              "• Wenn dein Deck beim Ziehen leer ist, mischst du automatisch den Friedhof mit dem Deck, ohne deinen Zug zu verlieren.",
+              "• Dieser Fall gilt nicht als strategisches Mischen.",
+              "",
+              "⚠️ Riskante Strategie:",
+              "• Das Vervielfachen strategischer Mischvorgänge erhöht den Zufall und kann deine Pläne verzögern.",
+              "• Besser diese Option als punktuelles Werkzeug behalten, nicht als Automatismus."
+            ]
+          },
+          {
+            "id": "astuce-strategique",
+            "icon": "🧠",
+            "title": "Strategischer Tipp",
+            "content": [
+              "Das strategische Mischen ist ein zweischneidiges Schwert:",
+              "",
+              "✅ Es kann eine Situation lösen...",
+              "❌ ...aber es kostet dich oft Tempo.",
+              "",
+              "💡 Nutze es mit einem klaren Ziel, nicht aus Gewohnheit."
+            ],
+            "highlight": "🎯 Rat: Plane dein strategisches Mischen basierend auf spezifischen Karten, die du zurückholen möchtest, nicht nur um zu 'sehen was passiert'."
+          }
+        ]
+      },
+      {
+        "key": "chapter7",
+        "title": "Das Opfer – Eine Figur spielen",
+        "subtitle": "Kapitel 7 • Das Opfer",
+        "sections": [
+          {
+            "id": "sacrifice-intro",
+            "icon": "⚔️",
+            "title": "Das Opfer – Eine Figur spielen",
+            "content": [
+              "In UNIT ist es möglich, die Opfermechanik zu nutzen, um bestimmte Spezialkarten, genannt Figuren (König, Dame, Bube), zu spielen.",
+              "Diese Aktion besteht darin, bereits auf dem Feld platzierte Karten zu entfernen, um die Beschwörungskosten zu bezahlen."
+            ]
+          },
+          {
+            "id": "principe-sacrifice",
+            "icon": "🎯",
+            "title": "Prinzip des Opfers",
+            "content": [
+              "🎯 Ziel: Eine bestimmte Anzahl von Karten vom Feld entfernen, um eine Figur zu beschwören.",
+              "🪦 Zielort: Geopferte Karten gehen nach Gebrauch auf den Friedhof.",
+              "📏 Schlüsselregel: Beginne immer mit der höchsten Karte jeder gewählten Spalte."
+            ]
+          },
+          {
+            "id": "cartes-non-sacrifiables",
+            "icon": "🚫",
+            "title": "Nicht opferbare Karten",
+            "content": [
+              "❌ Ass",
+              "❌ Lucky 7 in der Spalte platziert",
+              "❌ Revolution 10",
+              "❌ Jede Karte, die unter einem Ass, einer platzierten 7 oder einer 10 liegt: diese Karten sind blockiert und nicht opferbar."
+            ]
+          },
+          {
+            "id": "regles-selection",
+            "icon": "📌",
+            "title": "Auswahlregeln",
+            "content": [
+              "🔝 Beginne immer mit der höchsten Karte einer Spalte.",
+              "• Beispiel: Wenn die höchste Karte in Pik eine 6♠ ist, kannst du sie opfern.",
+              "",
+              "🔄 Ergänze mit anderen höchsten Karten anderer Spalten, falls nötig.",
+              "• Beispiel: 6♠ + 8♥ + 2♦ für einen König.",
+              "",
+              "🌈 Mischen von Farben erlaubt, solange jede gewählte Karte die höchste ihrer Spalte ist.",
+              "",
+              "⛓️ Kettenopfer in einer Spalte:",
+              "• Du kannst von der höchsten bis nach unten gehen, solange keine Blockadekarte angetroffen wird.",
+              "• Beispiel: 6♠, 5♠, 4♠ in derselben Spalte."
+            ]
+          },
+          {
+            "id": "couts-invocation",
+            "icon": "💰",
+            "title": "Beschwörungskosten durch Opfer",
+            "content": [
+              "👑 König: 3 Karten",
+              "👸 Dame: 2 Karten",
+              "🃏 Bube: 1 Karte (nur 8 oder 9)"
+            ]
+          },
+          {
+            "id": "attaque-immediate-valet",
+            "icon": "⚡",
+            "title": "Sonderfall – Sofortiger Angriff mit Bube",
+            "content": [
+              "Wenn ein Bube beschworen wird durch:",
+              "• Opfer",
+              "• Oder Joker",
+              "",
+              "➡️ Kann er sofort im selben Zug angreifen.",
+              "",
+              "(Andernfalls wird er passiv und kann bis zum nächsten Zug nicht angreifen.)"
+            ]
+          },
+          {
+            "id": "astuce-sacrifice",
+            "icon": "🧠",
+            "title": "Strategischer Tipp",
+            "content": [
+              "Das Opfer ist eine starke taktische Wahl:",
+              "",
+              "❌ Du verlierst bereits platzierte Karten...",
+              "✅ ...aber du gewinnst eine Meisterfigur.",
+              "",
+              "💡 Nutze es, um das gegnerische Tempo zu brechen oder mit einem sofortigen Effekt zu überraschen."
+            ],
+            "highlight": "⚔️ Das Opfer verwandelt deine gegenwärtigen Ressourcen in sofortige Macht. Das Timing ist entscheidend!"
+          }
+        ]
+      },
+      {
+        "key": "chapter8",
+        "title": "Der König – Höchster Schild",
+        "subtitle": "Kapitel 8 • Der König",
+        "sections": [
+          {
+            "id": "roi-intro",
+            "icon": "👑",
+            "title": "Der König – Höchster Schild",
+            "content": [
+              "Der König ist die ultimative Verteidigungsfigur in UNIT.",
+              "Wenn er im Spiel ist, schützt er deine Lebenspunkte vollständig gegen Angriffe von Einheiten derselben Farbe und zwingt den Gegner, eine spezifische Antwort zu finden."
+            ]
+          },
+          {
+            "id": "effet-roi",
+            "icon": "🎯",
+            "title": "Effekt des Königs",
+            "content": [
+              "Solange ein König für eine bestimmte Farbe vorhanden ist:",
+              "",
+              "🛡️ Keine Einheit dieser Farbe unter 8 kann deine Lebenspunkte angreifen.",
+              "🛡️ Diese Einheiten können den König auch nicht zerstören.",
+              "",
+              "Nur bestimmte Angriffe können den König umgehen:",
+              "⚔️ 8 oder 9 derselben Farbe → schlagen den König und zerstören ihn.",
+              "🃏 Joker → zerstört einen König jeder Farbe.",
+              "💥 Revolution (10) → zerstört den König und verursacht 10 direkten Schaden."
+            ]
+          },
+          {
+            "id": "conditions-roi",
+            "icon": "⚙️",
+            "title": "Bedingungen, um einen König zu spielen",
+            "content": [
+              "Drei mögliche Methoden:",
+              "",
+              "⚔️ Opfer:",
+              "• Opfere 3 Karten, jede die höchste ihrer Spalte (außer Ass, 7, 10).",
+              "",
+              "🃏 Joker:",
+              "• Spiele einen Joker, der dann auf den Friedhof geht.",
+              "",
+              "7️⃣ Lucky 7:",
+              "• Spiele eine Lucky 7, die dann auf den Friedhof geht."
+            ]
+          },
+          {
+            "id": "positionnement-roi",
+            "icon": "📌",
+            "title": "Positionierung",
+            "content": [
+              "👑 Der König wird auf den \"König\"-Platz seiner Farbe auf dem Brett gelegt.",
+              "🔒 Einmal platziert, bleibt er, bis er durch einen gültigen Angriff zerstört wird."
+            ]
+          },
+          {
+            "id": "perte-roi",
+            "icon": "💥",
+            "title": "Verlust des Königs",
+            "content": [
+              "Wenn der König von einer 8, 9, Joker oder Revolution geschlagen wird:",
+              "",
+              "🪦 Wird er sofort auf den Friedhof geschickt.",
+              "❌ Der Schutz, den er bot, verschwindet sofort."
+            ]
+          },
+          {
+            "id": "strategie-roi",
+            "icon": "🧠",
+            "title": "Strategie mit dem König",
+            "content": [
+              "🛡️ Defensiv: Blockiere eine fortgeschrittene Farbe des Gegners, um Zeit zu gewinnen.",
+              "⏰ Temporär: Zwinge den Gegner, eine 8, 9 oder einen Joker zu verschwenden, um den Weg freizumachen.",
+              "🚧 Präventiv: Einen König früh zu platzieren, kann eine ganze Kategorie des Gegners bremsen."
+            ]
+          },
+          {
+            "id": "resume-roi",
+            "icon": "📌",
+            "title": "Zum Merken",
+            "content": [
+              "Der König gewinnt das Spiel nicht, aber er kann verhindern, dass der Gegner es dir wegnimmt.",
+              "Gut gespielt, wird er zu einer echten Mauer im gegnerischen Tempo."
+            ],
+            "highlight": "👑 Der König verwandelt passive Verteidigung in aktive Brettkontrolle. Strategische Platzierung kann den Lauf eines Spiels ändern!"
+          }
+        ]
+      },
+      {
+        "key": "chapter9",
+        "title": "Die Dame – Ladies First",
+        "subtitle": "Kapitel 9 • Die Dame",
+        "sections": [
+          {
+            "id": "dame-intro",
+            "icon": "👸",
+            "title": "Die Dame – Ladies First",
+            "content": [
+              "Die Dame ist die einzige völlig unangreifbare Karte in UNIT.",
+              "Sie kann niemals zerstört oder daran gehindert werden, ihren Effekt zu erfüllen.",
+              "Ihre Hauptrolle: deine Lebenspunkte heilen."
+            ]
+          },
+          {
+            "id": "immunite-dame",
+            "icon": "🛡️",
+            "title": "Absolute Immunität",
+            "content": [
+              "Die Dame kann niemals von einer Karte oder einem Effekt angegriffen werden:",
+              "",
+              "✅ Immun gegen Joker",
+              "✅ Immun gegen Bube",
+              "✅ Immun gegen klassische Einheiten",
+              "",
+              "Ihr Effekt wird ausgelöst, egal was passiert."
+            ]
+          },
+          {
+            "id": "effet-soin",
+            "icon": "🎯",
+            "title": "Haupteffekt – Heilen",
+            "content": [
+              "Abhängig von der verwendeten Methode, um sie zu spielen, heilt die Dame sofort:",
+              "",
+              "⚔️ Opfer (2 Karten, jede die höchste ihrer Spalte):",
+              "• +2 LP → Dame geht auf den Friedhof",
+              "",
+              "7️⃣ Gespielt mit einer Lucky 7:",
+              "• +2 LP → Dame und 7 gehen auf den Friedhof",
+              "",
+              "🃏 Gespielt mit einem Joker:",
+              "• +2 LP → Dame und Joker gehen auf den Friedhof"
+            ]
+          },
+          {
+            "id": "defi-dame",
+            "icon": "🎲",
+            "title": "Nebeneffekt – Die Herausforderung der Guten Dame",
+            "content": [
+              "Wenn die Dame als 13. Karte gespielt wird (nach der 10, Bube, König, etc. im Ablagestapel oder globalen Spiel - fortgeschrittene Regel):",
+              "• Kann sie eine Herausforderung stellen: Der Spieler zieht eine Karte.",
+              "• Wenn es eine Rote Karte ist (Herz/Karo): Heilung verdoppelt (+4 LP).",
+              "• Wenn es eine Schwarze Karte ist (Pik/Kreuz): Heilung aufgehoben.",
+              "(Diese Regel hängt von der aktiven Variante ab)."
+            ]
+          },
+          {
+            "id": "resume-dame",
+            "icon": "📌",
+            "title": "Zum Merken",
+            "content": [
+              "Die Dame ist eine sofortige Heilung.",
+              "Sie bleibt nicht auf dem Feld, sie führt ihren Effekt aus und geht auf den Friedhof.",
+              "Sie ist der beste Weg, um im Notfall LP wiederherzustellen."
+            ]
+          }
+        ]
+      },
+      {
+        "key": "chapter10",
+        "title": "Der Bube – Die Eliminierungswaffe",
+        "subtitle": "Kapitel 10 • Der Bube",
+        "sections": [
+          {
+            "id": "valet-intro",
+            "icon": "🗡️",
+            "title": "Der Bube – Die Eliminierungswaffe",
+            "content": [
+              "Der Bube ist eine offensive Karte in UNIT.",
+              "Er ist eine der mächtigsten Möglichkeiten, gegnerische Spalten zu zerstören und Druck auszuüben, aber er hat einen Preis: Er wird nach Gebrauch immer geopfert."
+            ]
+          },
+          {
+            "id": "role-valet",
+            "icon": "🎯",
+            "title": "Hauptrolle",
+            "content": [
+              "Der Bube ist ein spezialisierter Angreifer:",
+              "",
+              "⚔️ Er kann eine gegnerische Einheit derselben Farbe zerstören.",
+              "💥 Gegen kleine Einheiten ist er in der Lage, eine ganze Spalte zu fegen.",
+              "🪦 Jedoch wird er verbraucht, sobald er angreift."
+            ]
+          },
+          {
+            "id": "invocation-valet",
+            "icon": "⚙️",
+            "title": "Beschwörung des Buben",
+            "content": [
+              "Drei Möglichkeiten, ihn ins Spiel zu bringen:",
+              "",
+              "⚔️ Opfer:",
+              "• Opfere eine 8 oder eine 9 (höchste Karte einer Spalte)",
+              "• Status: Sofort aktiv",
+              "",
+              "🃏 Joker:",
+              "• Spiele einen Joker (der auf den Friedhof geht)",
+              "• Status: Sofort aktiv",
+              "",
+              "7️⃣ Lucky 7:",
+              "• Spiele eine Lucky 7 (die auf den Friedhof geht)",
+              "• Status: Passiv platziert → Angriff erst im nächsten Zug verfügbar"
+            ]
+          },
+          {
+            "id": "cycle-fonctionnement",
+            "icon": "🔄",
+            "title": "Funktionszyklus",
+            "content": [
+              "⚡ Aktiv:",
+              "• Kann sofort eine gegnerische Einheit derselben Farbe angreifen.",
+              "• Nach seinem Angriff wird der Bube auf den Friedhof geschickt.",
+              "",
+              "😴 Passiv:",
+              "• Wenn über eine Lucky 7 platziert, kann der Bube diesen Zug nicht angreifen.",
+              "• Er wird zu Beginn des nächsten Zuges aktiv."
+            ]
+          },
+          {
+            "id": "cibles-autorisees",
+            "icon": "⚔️",
+            "title": "Autorisierte Ziele",
+            "content": [
+              "Der Bube kann angreifen:",
+              "",
+              "✅ Eine Einheit mit Wert ≤ 6 → die gesamte gegnerische Spalte wird zerstört (Spalte auf den Friedhof + Bube auf den Friedhof).",
+              "⚠️ Eine Einheit von 8 oder 9 → direkter Kampf, Ergebnis abhängig von Regeln (Risiko, den Buben zu verlieren).",
+              "",
+              "Der Bube kann nicht angreifen:",
+              "",
+              "❌ Eine Dame (geschützt durch Ladies First).",
+              "❌ Einen König.",
+              "❌ Einen anderen Joker."
+            ]
+          },
+          {
+            "id": "exemples-actions",
+            "icon": "💥",
+            "title": "Beispielaktionen",
+            "content": [
+              "🎯 Aktiver Bube → greift eine 5♠ an → gesamte gegnerische Pik-Spalte wird zerstört, Bube geht auch auf den Friedhof.",
+              "",
+              "⚠️ Aktiver Bube → greift eine 8♥ an → riskanter Kampf, Bube kann gekontert werden.",
+              "",
+              "⚠️ Aktiver Bube → greift eine 9♦ an → dasselbe, möglicher Konter."
+            ]
+          },
+          {
+            "id": "strategie-valet",
+            "icon": "🧠",
+            "title": "Strategie mit dem Buben",
+            "content": [
+              "💥 Durchbruchswaffe: Zerstöre eine fortgeschrittene gegnerische Spalte, um ihr Tempo zu brechen.",
+              "⚖️ Kalkuliertes Opfer: Einen Buben zu verlieren, um den Gegner zu zwingen, eine ganze Spalte neu aufzubauen, kann sich lohnen.",
+              "⚡ Sofortige Kombo: Einen Buben über einen Joker oder Opfer zu beschwören, erlaubt es, direkt anzugreifen und den Gegner zu überraschen.",
+              "⏰ Timing: Zu warten, bis der Gegner viel in eine Spalte investiert, bevor man sie zerstört, maximiert den Wert des Buben."
+            ]
+          },
+          {
+            "id": "resume-valet",
+            "icon": "📌",
+            "title": "Zum Merken",
+            "content": [
+              "Der Bube ist ein zweischneidiges Schwert: Er zerstört, aber zerstört sich mit.",
+              "Gut gespielt, kann er ein Spiel in einer einzigen Aktion drehen."
+            ],
+            "highlight": "🗡️ Der Bube verkörpert das taktische Opfer: Verlieren, um besser zu gewinnen. Sein Einsatz-Timing kann das Ergebnis eines Spiels bestimmen!"
+          }
+        ]
+      },
+      {
+        "key": "chapter11",
+        "title": "Der Joker – Die Legendäre Karte",
+        "subtitle": "Kapitel 11 • Der Joker",
+        "sections": [
+          {
+            "id": "joker-intro",
+            "icon": "🃏",
+            "title": "Der Joker – Die Legendäre Karte",
+            "content": [
+              "Der Joker ist die mächtigste und vielseitigste Karte in UNIT.",
+              "Es ist eine einzigartige Karte, die in fast alle Phasen des Spiels eingreifen kann: Angriff, Verteidigung, Aktivierung, Heilung oder sogar temporärer Ersatz.",
+              "Aber Vorsicht: Jeder Einsatz des Jokers ist einmalig und hat immer eine bedeutende Konsequenz."
+            ]
+          },
+          {
+            "id": "roles-joker",
+            "icon": "🎯",
+            "title": "Die Rollen des Jokers",
+            "content": [
+              "Der Joker kann auf 5 Hauptarten verwendet werden:",
+              "",
+              "⚔️ Angriff (Einheiten oder Figuren zerstören)",
+              "🛡️ Verteidigung (einen Angriff blocken)",
+              "🔄 Ersetzen (vorübergehend den Platz einer fehlenden Karte einnehmen)",
+              "💊 Heilen (+3 Lebenspunkte)",
+              "🔧 Eine Spalte oder eine Figur aktivieren (wie eine Lucky 7)"
+            ]
+          },
+          {
+            "id": "utilisation-offensive",
+            "icon": "1️⃣",
+            "title": "Offensive Nutzung – Angriff",
+            "content": [
+              "Der Joker kann jede Einheit in einer gegnerischen Spalte zerstören, auch wenn es nicht die höchste ist.",
+              "",
+              "Effekte:",
+              "• Die zerstörte Karte wird auf den Friedhof geschickt.",
+              "• Alle Karten darüber werden unbrauchbar, bis die Spalte wieder aufgebaut ist.",
+              "",
+              "Beispiel: Wenn ein Joker eine 6♣ zerstört, dann können die 7♣, 8♣, 9♣ und 10♣ nicht mehr gespielt werden, bis die Kette repariert ist.",
+              "",
+              "Der Joker kann auch:",
+              "✅ Einen König zerstören (unabhängig von der Farbe)",
+              "✅ Einen Buben zerstören (unabhängig von der Farbe)",
+              "",
+              "🚫 Grenzen:",
+              "❌ Kann kein Ass angreifen",
+              "❌ Kann keine Lucky 7 angreifen",
+              "❌ Kann keine Revolution 10 angreifen"
+            ]
+          },
+          {
+            "id": "utilisation-defensive",
+            "icon": "2️⃣",
+            "title": "Defensive Nutzung – Blocken",
+            "content": [
+              "Der Joker kann aus der Hand oder der Reserve während des gegnerischen Zuges gespielt werden.",
+              "",
+              "✅ Effekt: Er blockt jeden Angriff (Einheit, Bube, gegnerischer Joker, etc.).",
+              "🚫 Einzige Ausnahme: Er kann keine Revolution blocken.",
+              "",
+              "Nach Gebrauch geht er auf den Friedhof."
+            ]
+          },
+          {
+            "id": "utilisation-remplacement",
+            "icon": "3️⃣",
+            "title": "Nutzung als Ersatz (Substitution)",
+            "content": [
+              "Der Joker kann auf das Feld gelegt werden, um vorübergehend eine fehlende Karte in einer Spalte zu ersetzen.",
+              "Dies ermöglicht es, die Spalte weiterzubauen, ohne auf die echte Karte zu warten.",
+              "",
+              "⚠️ Wichtige Konsequenzen:",
+              "Solange der Joker eine Karte ersetzt:",
+              "• Ist die entsprechende Einheitenkategorie deaktiviert (kann nicht mehr angreifen).",
+              "• Beispiel: Ein Joker ersetzt eine 4♠ → die Kategorie 4–5–6♠ kann nicht angreifen.",
+              "• Die Einheiten der Kategorie sind geschützt: Sie können nicht von einem gegnerischen Buben oder Joker zerstört werden.",
+              "• Eine Revolution ist unmöglich, wenn ein Joker in der Spalte vorhanden ist.",
+              "",
+              "📌 Möglicher Tausch:",
+              "• Der Spieler kann den Joker gegen die echte Karte tauschen (wenn er sie zieht).",
+              "• Der Joker kehrt dann auf die Hand oder in die Reserve zurück.",
+              "• Dieser Tausch kostet eine Aktion."
+            ]
+          },
+          {
+            "id": "utilisation-soin",
+            "icon": "4️⃣",
+            "title": "Nutzung zur Heilung",
+            "content": [
+              "Direkt aus der Hand oder der Reserve gespielt, kann der Joker:",
+              "",
+              "💊 Sofort +3 Lebenspunkte für den Spieler wiederherstellen.",
+              "🪦 Nach Gebrauch geht er auf den Friedhof."
+            ]
+          },
+          {
+            "id": "utilisation-activateur",
+            "icon": "5️⃣",
+            "title": "Nutzung als Aktivator",
+            "content": [
+              "Der Joker kann eine Lucky 7 als Spaltenaktivator ersetzen.",
+              "Er kann daher in die reserveSuitColonne gelegt werden, um den Übergang von 6 auf 8 zu ermöglichen.",
+              "Er kann auch geopfert werden, um einen König, eine Dame oder einen Buben zu beschwören, genau wie eine 7.",
+              "",
+              "⚠️ Warnung: Ein auf diese Weise verwendeter Joker wird sofort auf den Friedhof geschickt."
+            ]
+          },
+          {
+            "id": "interaction-speciale",
+            "icon": "⚔️",
+            "title": "Spezielle Interaktion – Joker vs Lucky 7",
+            "content": [
+              "Wenn ein Joker eine Einheit einer Spalte angreift, in der eine Lucky 7 aktiv ist, dann:",
+              "",
+              "🛡️ Wird der Angriff von der 7 geblockt.",
+              "🪦 Der Joker wird auf den Friedhof geschickt.",
+              "😴 Die 7 wird dann deaktiviert (bleibt platziert, schützt aber nicht mehr)."
+            ]
+          },
+          {
+            "id": "strategie-joker",
+            "icon": "🧠",
+            "title": "Strategie mit dem Joker",
+            "content": [
+              "🔄 Polymorph: Er kann alles tun, aber jede Wahl ist endgültig.",
+              "🛡️ Defensive Waffe: Oft rentabler im Blocken als im Angriff eingesetzt.",
+              "🚫 Bremse für Revolution: Einen Joker in eine Spalte zu legen, bringt dich voran... aber blockiert den Zugang zur Revolution.",
+              "💎 Seltene Ressource: Jeder Joker ist kostbar, besser ihn in einem Schlüsselmoment verwenden."
+            ]
+          },
+          {
+            "id": "resume-joker",
+            "icon": "📌",
+            "title": "Kurzfassung",
+            "content": [
+              "📊 Nutzung → Haupteffekt → Limit:",
+              "",
+              "⚔️ Angriff → Zerstört König, Bube oder Einheit → Nicht Ass, 7, 10",
+              "🛡️ Verteidigung → Blockt jeden Angriff → Nicht Revolution",
+              "🔄 Ersatz → Ersetzt fehlende Karte → Deaktiviert Kategorie / blockiert Revolution",
+              "💊 Heilung → +3 LP sofort → Einmalige Nutzung",
+              "🔧 Aktivator → Ersetzt eine 7 für Spalte oder Figur → Geht auf den Friedhof"
+            ]
+          },
+          {
+            "id": "conclusion-joker",
+            "icon": "📖",
+            "title": "Zum Merken",
+            "content": [
+              "Der Joker ist die flexibelste und gefährlichste Karte in UNIT.",
+              "Schlecht eingesetzt, kann er deine eigenen Strategien blockieren (besonders die Revolution).",
+              "Gut eingesetzt, kann er ein Spiel retten oder den Plan des Gegners im entscheidenden Moment zerstören."
+            ],
+            "highlight": "🃏 Der Joker ist die Verkörperung der taktischen Vielseitigkeit: Eine Karte, fünf Nutzungen, tausend Möglichkeiten. Sein Timing zu meistern, heißt UNIT zu meistern!"
+          }
+        ]
+      }
+    ]
   }
 }

@@ -1,10 +1,14 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
+
 interface MatchmakingModalProps {
   onCancel: () => void;
 }
 
 export default function MatchmakingModal({ onCancel }: MatchmakingModalProps) {
+  const { t } = useTranslation();
+
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 modal-backdrop">
       <div className="bg-gray-800 border border-gray-600 text-white p-6 rounded-2xl shadow-2xl relative overflow-hidden max-w-sm w-full mx-4 modal-content">
@@ -18,7 +22,7 @@ export default function MatchmakingModal({ onCancel }: MatchmakingModalProps) {
           {/* Header */}
           <div className="flex items-center justify-center mb-4">
             <div className="text-2xl mr-2">🎮</div>
-            <h3 className="text-xl font-bold text-white">{`Recherche d'adversaire`}</h3>
+            <h3 className="text-xl font-bold text-white">{t("matchmaking.title")}</h3>
             <div className="text-2xl ml-2 animate-bounce">🔍</div>
           </div>
 
@@ -60,7 +64,7 @@ export default function MatchmakingModal({ onCancel }: MatchmakingModalProps) {
           {/* Status text */}
           <div className="mb-4">
             <p className="text-lg font-semibold mb-2">
-              Recherche en cours
+              {t("matchmaking.searching")}
               <span className="inline-flex ml-1">
                 <span
                   className="animate-bounce"
@@ -97,7 +101,7 @@ export default function MatchmakingModal({ onCancel }: MatchmakingModalProps) {
             </div>
 
             <p className="text-sm text-gray-300">
-              Recherche dans toutes les régions...
+              {t("matchmaking.searchingRegions")}
             </p>
           </div>
 
@@ -107,7 +111,7 @@ export default function MatchmakingModal({ onCancel }: MatchmakingModalProps) {
               onClick={onCancel}
               className="px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded transition-all duration-200 border border-red-500 hover:border-red-400 shadow-md hover:shadow-lg transform hover:scale-105 font-medium"
             >
-              ❌ Annuler
+              ❌ {t("matchmaking.cancel")}
             </button>
           </div>
         </div>

@@ -2,40 +2,35 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 
-import translationEN from "./locales/en/translation.json";
-import translationFR from "./locales/fr/translation.json";
-import translationES from "./locales/es/translation.json";
-import translationDE from "./locales/de/translation.json";
-import translationIT from "./locales/it/translation.json";
-import translationPT from "./locales/pt/translation.json";
-import translationJA from "./locales/ja/translation.json";
-import translationHI from "./locales/hi/translation.json";
+// Import des traductions
+import enTranslation from "./locales/en/translation.json";
+import frTranslation from "./locales/fr/translation.json";
+import esTranslation from "./locales/es/translation.json";
+import deTranslation from "./locales/de/translation.json";
+import itTranslation from "./locales/it/translation.json";
+import ptTranslation from "./locales/pt/translation.json";
+import jaTranslation from "./locales/ja/translation.json";
+import hiTranslation from "./locales/hi/translation.json";
+import koTranslation from "./locales/ko/translation.json";
+import ruTranslation from "./locales/ru/translation.json";
+import zhTranslation from "./locales/zh/translation.json";
+import zhTWTranslation from "./locales/zh-TW/translation.json";
+import arTranslation from "./locales/ar/translation.json";
 
 const resources = {
-  en: {
-    translation: translationEN,
-  },
-  fr: {
-    translation: translationFR,
-  },
-  es: {
-    translation: translationES,
-  },
-  de: {
-    translation: translationDE,
-  },
-  it: {
-    translation: translationIT,
-  },
-  pt: {
-    translation: translationPT,
-  },
-  ja: {
-    translation: translationJA,
-  },
-  hi: {
-    translation: translationHI,
-  },
+  en: { translation: enTranslation },
+  fr: { translation: frTranslation },
+  es: { translation: esTranslation },
+  de: { translation: deTranslation },
+  it: { translation: itTranslation },
+  pt: { translation: ptTranslation },
+  ja: { translation: jaTranslation },
+  hi: { translation: hiTranslation },
+  ko: { translation: koTranslation },
+  ru: { translation: ruTranslation },
+  zh: { translation: zhTranslation },
+  "zh-TW": { translation: zhTWTranslation },
+  ar: { translation: arTranslation },
 };
 
 i18n
@@ -44,8 +39,22 @@ i18n
   .init({
     resources,
     fallbackLng: "fr",
-    supportedLngs: ["fr", "en", "es", "de", "it", "pt", "ja", "hi"],
-    debug: false, // Set to false in production to avoid console spam
+    supportedLngs: [
+      "fr",
+      "en",
+      "es",
+      "de",
+      "it",
+      "pt",
+      "ja",
+      "hi",
+      "ko",
+      "ru",
+      "zh",
+      "zh-TW",
+      "ar",
+    ],
+    debug: true,
     interpolation: {
       escapeValue: false,
     },
@@ -55,19 +64,5 @@ i18n
       caches: ["localStorage"],
     },
   });
-
-// Function to reload translations - useful when translations are not loading correctly
-export const reloadTranslations = () => {
-  // Force reload all namespaces for the current language
-  const currentLang = i18n.language;
-  // Check if the language exists in resources
-  if (currentLang && resources[currentLang as keyof typeof resources]) {
-    // Type assertion to handle the index signature issue
-    const langResources = resources[currentLang as keyof typeof resources];
-    Object.keys(langResources).forEach((namespace) => {
-      i18n.reloadResources(currentLang, namespace);
-    });
-  }
-};
 
 export default i18n;

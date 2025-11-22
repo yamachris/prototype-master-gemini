@@ -8,8 +8,9 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   // just to seach quickly https://www.unitcardgame.com
   // Enable CORS with improved preflight handling
+  console.log('ALLOWED_ORIGIN:', process.env.ALLOWED_ORIGIN);
   app.enableCors({
-    origin: process.env.ALLOWED_ORIGIN,
+    origin: process.env.ALLOWED_ORIGIN || 'http://localhost:3008',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
   });

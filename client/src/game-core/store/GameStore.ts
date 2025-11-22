@@ -13,7 +13,7 @@ import {
 import { Card as CardType, QueenCard, blockRequestData } from "../types/game";
 import { AudioManager } from "../sound-design/audioManager";
 import i18next from "i18next"; // Importez i18next directement
-import i18n from "../i18n/config";
+import i18n from "../i18n/i18n";
 import { gameSocket } from "../../services/socket";
 import { gameOverResponse, AttackResult } from "../types/game";
 
@@ -769,15 +769,15 @@ export const useGameStore = create<GameStore>((set, get) => ({
       showBlockPopup: show,
       blockRequestData: data
         ? {
-            attackCard: data.attackCard,
-            attackTarget: data.attackTarget,
-            attackingPlayerId: data.attackingPlayerId,
-          }
+          attackCard: data.attackCard,
+          attackTarget: data.attackTarget,
+          attackingPlayerId: data.attackingPlayerId,
+        }
         : {
-            attackCard: null,
-            attackTarget: null,
-            attackingPlayerId: "",
-          },
+          attackCard: null,
+          attackTarget: null,
+          attackingPlayerId: "",
+        },
     });
   },
 
@@ -807,13 +807,13 @@ export const useGameStore = create<GameStore>((set, get) => ({
       showQueenChallengePopup: show,
       queenChallengeData: data
         ? {
-            queen: data.queen,
-            challengingPlayerId: data.challengingPlayerId,
-          }
+          queen: data.queen,
+          challengingPlayerId: data.challengingPlayerId,
+        }
         : {
-            queen: null,
-            challengingPlayerId: "",
-          },
+          queen: null,
+          challengingPlayerId: "",
+        },
     });
   },
 

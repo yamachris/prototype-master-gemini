@@ -1,6 +1,7 @@
 import React from "react";
 import { Heart, Clock, Loader2 } from "lucide-react";
 import { useGameStore } from "../store/GameStore";
+import { useTranslation } from "react-i18next";
 
 import { useGameTimer } from "../hooks/useGameTimer";
 import { ProfileEditor } from "./ProfileEditor";
@@ -10,6 +11,7 @@ import { PlayerTurn } from "./PlayerTurn";
 
 export function Header() {
   const { currentPlayer } = useGameStore();
+  const { t } = useTranslation();
 
   const { formattedTotalTime, isWaiting } = useGameTimer();
   const healthPercentage =
@@ -30,7 +32,7 @@ export function Header() {
                 <div className="flex items-center gap-2">
                   <Loader2 className="w-4 h-4 animate-spin text-blue-500" />
                   <span className="font-mono text-sm text-gray-900 dark:text-gray-100">
-                    En attente du second joueur...
+                    {t("header.waitingForSecondPlayer")}
                   </span>
                 </div>
               ) : (
@@ -73,7 +75,7 @@ export function Header() {
         {/* Warning for Low Health */}
         {currentPlayer.health <= 3 && (
           <div className="mt-3 px-4 py-2 bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-200 text-sm rounded-lg">
-            ⚠️ Attention: Points de vie critiques!
+            {t("header.criticalHealthWarning")}
           </div>
         )}
       </div>

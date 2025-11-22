@@ -1,4 +1,14 @@
 {
+  "matchmaking": {
+    "title": "Searching for opponent",
+    "searching": "Searching...",
+    "searchingRegions": "Searching in all regions...",
+    "cancel": "Cancel"
+  },
+  "header": {
+    "waitingForSecondPlayer": "Waiting for second player...",
+    "criticalHealthWarning": "⚠️ Warning: Critical Health Points!"
+  },
   "game": {
     "turn": "Turn {{number}}",
     "discard": "Discard",
@@ -114,33 +124,1138 @@
   },
   "home": {
     "presentation": {
-      "line1": "🎙️ « Welcome to UNIT – an explosive strategic card game where each player builds armies to trigger... a Revolution. »",
-      "line2": "🎙️ « With a simple deck of 54 cards, you assemble unit columns – from Ace to 10 – to attack, defend, and manipulate the battlefield. »",
-      "line3": "🎙️ « Beware: special cards like Kings, Jacks, or Jokers can turn everything around. »",
-      "line4": "🎙️ « The goal? Reduce your opponent's health to zero... or trigger a Revolution that deals 10 damage in one blow. »",
-      "line5": "🎙️ « Simple to understand, deep to master... and every game is unique. »",
-      "line6": "🎙️ « Ready to change the course of History? It's time to enter UNIT. »"
-    }
-  },
-  "matomo": {
-    "examples": {
-      "title": "Matomo Usage Examples",
-      "buttons": {
-        "startGame": "Start Game (Track Event)",
-        "playCard": "Play Joker (Track Card)",
-        "userLogin": "User Login (Set User ID)",
-        "gameWin": "Victory (Track Goal)"
-      }
-    }
-  },
-  "home": {
-    "presentation": {
       "line1": "🎙️ \"Welcome to UNIT – an explosive strategic card game where each player builds armies to trigger... a Revolution.\"",
       "line2": "🎙️ \"With a simple 54-card deck, you assemble columns of units – from Ace to 10 – to attack, defend, and manipulate the battlefield.\"",
       "line3": "🎙️ \"Beware: special cards like Kings, Jacks, or Jokers can turn everything upside down.\"",
       "line4": "🎙️ \"The goal? Reduce your opponent’s health to zero… or trigger a Revolution that deals 10 damage in a single blow.\"",
       "line5": "🎙️ \"Easy to grasp, deep to master… and every game is unique.\"",
       "line6": "🎙️ \"Ready to change the course of History? It’s time to enter UNIT.\""
+    },
+    "title": "Discover UNIT",
+    "subtitle": "An explosive strategic card game",
+    "openTutorial": "Open full tutorial",
+    "cardGame": "Card Game",
+    "heroDescription": "Strategy and luck meet in this fast-paced card game. Challenge the AI or face real players online!",
+    "profile": {
+      "title": "Player Profile",
+      "nicknameLabel": "Your Nickname:",
+      "nicknamePlaceholder": "Enter your nickname",
+      "statsTitle": "Player Statistics",
+      "gamesPlayed": "Games Played",
+      "winRate": "Win Rate"
+    },
+    "modes": {
+      "solo": {
+        "title": "Solo Mode",
+        "description": "Challenge the AI in a strategic head-to-head duel. Perfect for honing your skills!",
+        "button": "Play against Computer"
+      },
+      "online": {
+        "title": "Online Mode",
+        "description": "Face real opponents online and prove your skills. Matchmaking will find the perfect opponent!",
+        "button": "Find an Online Match"
+      }
+    },
+    "errors": {
+      "enterNickname": "Please enter your nickname",
+      "soloFailed": "Failed to start solo game. Please try again.",
+      "matchFailed": "Failed to find a match. Please try again."
     }
+  },
+  "tutorial": {
+    "close": "✕ Close",
+    "chapterPrefix": "Chapter {{number}} • ",
+    "chaptersTitle": "Chapters",
+    "previousChapter": "← Previous Chapter",
+    "nextChapter": "Next Chapter →",
+    "title": "📖 Full UNIT Game Rules",
+    "chapters": [
+      {
+        "key": "chapter1",
+        "title": "Understanding a Turn in UNIT",
+        "subtitle": "Chapter 1 • Gameplay Basics",
+        "sections": [
+          {
+            "id": "debut-partie",
+            "icon": "🎬",
+            "title": "Game Start",
+            "content": [
+              "Each player starts with a personal deck of 54 cards.",
+              "They draw 7 cards at the beginning of the game.",
+              "From these 7 cards, 2 cards of their choice are placed face down in reserve, on the field.",
+              "The player therefore keeps 5 cards in hand, and 2 cards in reserve."
+            ],
+            "highlight": "🧠 Important reminder: The reserve is a strategic extension of the hand, it remains face down and accessible during the game."
+          },
+          {
+            "id": "structure-tour",
+            "icon": "🔁",
+            "title": "Turn Structure",
+            "content": [
+              "Each turn always follows the same sequence."
+            ]
+          },
+          {
+            "id": "cas-1",
+            "icon": "➤",
+            "title": "Case 1: The player starts their turn with 7 cards",
+            "subtitle": "(5 in hand + 2 in reserve)",
+            "content": [
+              "Mandatory Discard: The player must discard 1 card from their hand (their choice).",
+              "Draw: Then, they draw 1 card to return to a total of 7 cards.",
+              "Action Phase: They can then:",
+              "• Place cards to build units,",
+              "• Use a special card (Jack, King, etc.),",
+              "• Attack or activate an effect.",
+              "End of Turn: Once their actions are finished, the player announces the end of their turn."
+            ],
+            "warning": "🛑 If the player cannot or does not want to perform any action, they must mandatory indicate the end of their turn."
+          },
+          {
+            "id": "cas-2",
+            "icon": "➤",
+            "title": "Case 2: The player has fewer than 7 cards at the start of the turn",
+            "subtitle": "(because they played cards previously)",
+            "content": [
+              "The player immediately draws the number of cards needed to return to 7 cards (hand + reserve).",
+              "Then they enter the action phase: they can play, attack, activate an effect...",
+              "End of Turn: they end their turn as usual."
+            ]
+          },
+          {
+            "id": "rappel-general",
+            "icon": "📌",
+            "title": "General Reminder",
+            "content": [
+              "Players can never exceed 7 cards (5 in hand + 2 in reserve).",
+              "If at 7 at the start of the turn: must discard 1 card before drawing.",
+              "If played cards: draws directly, without discard.",
+              "Each turn, a player can act or pass, but must indicate it."
+            ]
+          }
+        ]
+      },
+      {
+        "key": "chapter2",
+        "title": "The Action Phase",
+        "subtitle": "Chapter 2 • Actions and Strategies",
+        "sections": [
+          {
+            "id": "introduction-phase",
+            "icon": "🎯",
+            "title": "The Action Phase",
+            "content": [
+              "During their turn, after drawing, the player enters their action phase.",
+              "They can perform several types of actions, in the order they wish, as long as they respect the following limits:"
+            ]
+          },
+          {
+            "id": "actions-disponibles",
+            "icon": "🔄",
+            "title": "Available Actions",
+            "content": [
+              "Each action costs 1 action, except for special cases.",
+              "Here is the list of main actions a player can perform during their turn:"
+            ]
+          },
+          {
+            "id": "action-construire",
+            "icon": "🔹",
+            "title": "1. Play a card to build a unit",
+            "content": [
+              "The player places a card in the corresponding column (by suit).",
+              "Units must be placed in ascending order, from Ace to 10."
+            ],
+            "highlight": "➡️ ✅ This action allows progress towards an attack or a Revolution."
+          },
+          {
+            "id": "action-speciale",
+            "icon": "🔹",
+            "title": "2. Play a special card (Jack, King, Queen)",
+            "content": [
+              "The player can summon a special card by:",
+              "• Sacrifice (cards already placed),",
+              "• Using a Joker,",
+              "• Or a Lucky 7.",
+              "Summoning counts as an action."
+            ],
+            "highlight": "💡 Exception: If a Jack is summoned by Joker or sacrifice, it can attack immediately in the same turn. (Otherwise, it is passive until the next turn.)"
+          },
+          {
+            "id": "action-attaquer",
+            "icon": "🔹",
+            "title": "3. Attack with a unit",
+            "content": [
+              "A unit can attack only once in its category.",
+              "This attack costs 1 action."
+            ],
+            "warning": "⚠️ After an attack, the entire unit category is deactivated, even if the attack is blocked."
+          },
+          {
+            "id": "action-echanger",
+            "icon": "🔹",
+            "title": "4. Swap a card with an already placed Joker",
+            "content": [
+              "If a Joker is placed on the field to replace a card, the player can replace it with the real card (same suit and value).",
+              "The Joker returns to the hand or reserve depending on its origin."
+            ],
+            "highlight": "➡️ ✅ This swap counts as an action."
+          },
+          {
+            "id": "defense",
+            "icon": "🛡️",
+            "title": "5. Defense during the opponent's turn",
+            "content": [
+              "Although defense does not occur during the player's action phase, it is important to know about it.",
+              "A player can block an opponent's attack:",
+              "• If they possess a JOKER (in hand or reserve) → they play it immediately, it blocks the attack.",
+              "• If a Lucky 7 is present in the attacked column, at the right place (after the 6), then:",
+              "  - It blocks a single attack.",
+              "  - It is then deactivated until the column is destroyed and rebuilt."
+            ],
+            "highlight": "🧠 To remember: A Joker can block any attack (except Revolution). A Joker can block any attack, regardless of the column, except a Revolution. Each defense is valid once, then the card goes to the grave or becomes inactive."
+          },
+          {
+            "id": "limites-action",
+            "icon": "🚫",
+            "title": "Action Limits",
+            "content": [
+              "The player can perform as many actions as they wish in their turn, as long as they have cards to do so.",
+              "However:",
+              "• They can only make one Joker swap per turn.",
+              "• They can only attack once per unit category.",
+              "• Some cards (Jack) do not attack immediately, except in special cases."
+            ]
+          },
+          {
+            "id": "fin-tour",
+            "icon": "🔚",
+            "title": "End of Turn",
+            "content": [
+              "Once all actions are finished, the player announces the end of their turn.",
+              "If they perform no action, they must still declare the end of their turn."
+            ]
+          }
+        ]
+      },
+      {
+        "key": "chapter3",
+        "title": "Activators: Lucky 7 & Joker",
+        "subtitle": "Chapter 3 • Activation Mechanics",
+        "sections": [
+          {
+            "id": "introduction-activateurs",
+            "icon": "🔑",
+            "title": "Activators: Lucky 7 & Joker",
+            "content": [
+              "In UNIT, to build a unit column, it is not enough to place cards in order. You must activate the column with a special card called an activator.",
+              "There are two types of activators:",
+              "• 🟦 The Lucky 7",
+              "• 🃏 The Joker"
+            ]
+          },
+          {
+            "id": "comment-activer",
+            "icon": "🧱",
+            "title": "How to activate a column?",
+            "content": [
+              "To start a column, you must place an Ace, then climb progressively up to the 6.",
+              "This activator is placed in a special zone of the column, called reserveSuitColonne."
+            ],
+            "highlight": "🧠 But to be able to go beyond the 6 (and play the 8, 9, 10), it is mandatory to have an activator in place."
+          },
+          {
+            "id": "fonctionnement-activateur",
+            "icon": "⚙️",
+            "title": "How an activator works",
+            "content": [
+              "When a Lucky 7 or a Joker is played as an activator:",
+              "• It is placed next to the column, in the reserveSuitColonne.",
+              "• It unlocks the climb towards the 8, 9, 10.",
+              "• It remains active as long as the column is not destroyed."
+            ]
+          },
+          {
+            "id": "exemple-activation",
+            "icon": "➕",
+            "title": "Example",
+            "content": [
+              "You have cards from Ace to 6 in Diamonds.",
+              "You place a Lucky 7 of Diamonds in the reserveSuitColonne.",
+              "You can now place the 8, 9, 10 of Diamonds."
+            ]
+          },
+          {
+            "id": "conditions-importantes",
+            "icon": "🛑",
+            "title": "Watch out for conditions!",
+            "content": [
+              "A Joker or any Lucky 7 can be played at the start of the game to open the play, even if it doesn't match the suit."
+            ],
+            "highlight": "✅ This allows advancing and adapting your strategy.",
+            "warning": "❌ But to pass from card 6 to 8 in a column, you must mandatory have the correct Lucky 7 of the same suit as the column."
+          },
+          {
+            "id": "echange-activateur",
+            "icon": "♻️",
+            "title": "Swapping the activator",
+            "content": [
+              "If you placed the wrong 7 or a Joker in the reserveSuitColonne, don't panic:",
+              "• You can swap the activator for the correct Lucky 7 of the column's suit if you retrieve it in your hand or reserve.",
+              "• The previous Joker or 7 returns to its original position.",
+              "• This swap costs one action.",
+              "• It allows unlocking progress towards the top of the column (and potentially preparing a Revolution)."
+            ]
+          },
+          {
+            "id": "attaque-activateur",
+            "icon": "⚔️",
+            "title": "What happens in case of an attack?",
+            "content": [
+              "If a Jack attacks a column activated with a 7 or a Joker:",
+              "• All cards in the column, including the activator, go to the grave.",
+              "• This cancels the column's progress.",
+              "• You will have to start over from the Ace."
+            ]
+          },
+          {
+            "id": "activateurs-cartes-speciales",
+            "icon": "👑",
+            "title": "Activators and special cards (Face Cards)",
+            "content": [
+              "Lucky 7s and Jokers can also be used to summon face cards:",
+              "• King → 7 or Joker → Grave",
+              "• Queen → 7 or Joker → Grave",
+              "• Jack → 7 or Joker → Grave"
+            ],
+            "warning": "❗ As soon as a 7 or a Joker is used to play a special card, it is immediately sent to the grave."
+          },
+          {
+            "id": "resume-activateurs",
+            "icon": "🧠",
+            "title": "Summary to remember",
+            "content": [
+              "▶️ Activate a column = Ace + 7 or Joker in the reserveSuitColonne.",
+              "🔒 To place an 8, you need the Lucky 7 of the same suit.",
+              "🔁 You can swap the activator if needed (single action).",
+              "💥 In case of attack by Jack, the column + the activator are destroyed.",
+              "👑 Activators can also be used to play a King, a Queen or a Jack, but they then go to the grave."
+            ]
+          }
+        ]
+      },
+      {
+        "key": "chapter4",
+        "title": "The Revolution - The Ultimate Attack",
+        "subtitle": "Chapter 4 • The Culmination of the Game",
+        "sections": [
+          {
+            "id": "revolution-intro",
+            "icon": "🏆",
+            "title": "The Revolution – The Ultimate Attack",
+            "content": [
+              "The Revolution is the supreme strategic goal in UNIT.",
+              "It is the most powerful attack in the game, the one that can turn an entire game around if well prepared.",
+              "It symbolizes the perfect completion of a full column and the execution of a flawless plan."
+            ]
+          },
+          {
+            "id": "revolution-conditions",
+            "icon": "🧱",
+            "title": "Mandatory conditions to trigger a Revolution",
+            "content": [
+              "To launch a Revolution, you must meet all these conditions:",
+              "",
+              "✅ Have placed all 10 cards of the same suit in order, from Ace to 10",
+              "✅ Have not used a Joker in the column (no replacement)",
+              "✅ Have activated the column correctly with the correct Lucky 7 of the suit",
+              "✅ Have placed the 10 (this last one triggers the Revolution automatically)"
+            ]
+          },
+          {
+            "id": "revolution-effects",
+            "icon": "🎯",
+            "title": "Immediate effects of the Revolution",
+            "content": [
+              "💥 The opponent's King of the same suit is destroyed, even if it is still in play.",
+              "💥 The opponent takes 10 direct damage, with no possible defense.",
+              "🪦 The entire column (Ace to 10) is sent to the grave after the attack.",
+              "❗ No Joker, Lucky 7, Jack or other effect can block a Revolution."
+            ]
+          },
+          {
+            "id": "revolution-unstoppable",
+            "icon": "🛡️",
+            "title": "Why the Revolution is unstoppable",
+            "content": [
+              "The Revolution is the only completely unstoppable attack in the game.",
+              "It ignores all defense mechanisms:",
+              "",
+              "✅ Ignores Kings",
+              "✅ Ignores Jokers",
+              "✅ Ignores Lucky 7s",
+              "✅ Ignores cards in reserve",
+              "✅ Ignores any counter action",
+              "",
+              "It represents a rare, but devastating event, which rewards rigorous and patient players."
+            ]
+          },
+          {
+            "id": "revolution-joker-case",
+            "icon": "⚠️",
+            "title": "Special case: Joker in the column",
+            "content": [
+              "If a single Joker replaces a card in the column:",
+              "",
+              "❌ The Revolution is blocked.",
+              "",
+              "The column is considered incomplete, even if it visually looks finished.",
+              "You will have to swap the Joker for the real card (with an action) to unlock the Revolution."
+            ]
+          },
+          {
+            "id": "revolution-strategy",
+            "icon": "🧠",
+            "title": "Strategic Reflection",
+            "content": [
+              "The Joker is a useful but dangerous card to place in a column if you are aiming for the Revolution.",
+              "Sometimes, it is better to delay an action than to sacrifice the possibility of a Revolution.",
+              "Keeping the column pure guarantees you a brutal and spectacular outcome."
+            ]
+          },
+          {
+            "id": "revolution-perfect",
+            "icon": "🏅",
+            "title": "The Perfect Revolution",
+            "content": [
+              "A Perfect Revolution occurs when the player triggers a Revolution without having made any other attack with their units during the game.",
+              "",
+              "🎖️ It testifies to absolute control of tempo, patience, and a pure playstyle.",
+              "It can surprise an overly aggressive opponent, and eliminate them in a single strike."
+            ]
+          },
+          {
+            "id": "revolution-summary",
+            "icon": "📌",
+            "title": "Quick Summary",
+            "content": [
+              "🎯 Necessary cards: Ace to 10, same suit, no Joker",
+              "🔧 Mandatory activation: Yes, with corresponding Lucky 7",
+              "⚡ Trigger: Placing the 10",
+              "💥 Effects: Destruction of King + 10 direct damage",
+              "🛡️ Blockable?: No, impossible",
+              "🪦 Consequences: Entire column sent to grave",
+              "🏆 Strategic bonus: Perfect Revolution if no other attack made"
+            ]
+          }
+        ]
+      },
+      {
+        "key": "chapter5",
+        "title": "Defense - Protecting your Health Points",
+        "subtitle": "Chapter 5 • Defensive Mechanisms",
+        "sections": [
+          {
+            "id": "defense-intro",
+            "icon": "🛡️",
+            "title": "Defense – Protecting your Health Points and Units",
+            "content": [
+              "In UNIT, defense is as important as offense.",
+              "Certain cards and positions allow canceling or limiting the impact of an opponent's action."
+            ]
+          },
+          {
+            "id": "defense-objectives",
+            "icon": "🎯",
+            "title": "Objective of Defense",
+            "content": [
+              "Prevent the opponent:",
+              "",
+              "• From inflicting direct damage to your health points.",
+              "• From destroying your units or special cards too easily.",
+              "• From breaking your strategy (ex: preventing a Jack from clearing a column)."
+            ]
+          },
+          {
+            "id": "joker-defense",
+            "icon": "1️⃣",
+            "title": "The Joker – Universal Defender",
+            "content": [
+              "🔹 Effect: The Joker can block any attack, regardless of the column or attacking card.",
+              "🔹 Limit: It cannot block a Revolution.",
+              "",
+              "📋 Usage:",
+              "• Played from hand or reserve during the opponent's turn.",
+              "• After use, it goes immediately to the grave.",
+              "",
+              "💡 Tip: Keeping a Joker in hand is often safer than using it in attack."
+            ]
+          },
+          {
+            "id": "seven-defense",
+            "icon": "2️⃣",
+            "title": "The Lucky 7 – Column Shield",
+            "content": [
+              "🔹 Effect: A Lucky 7 placed in a column, at its normal position (after the 6), can block a single attack targeting that column.",
+              "",
+              "📋 Conditions:",
+              "• The 7 must be of the same suit as the column.",
+              "• It only protects the column where it is placed.",
+              "",
+              "⚡ After use:",
+              "• The 7 is deactivated until the column is destroyed and rebuilt.",
+              "• It remains physically in play, but no longer blocks.",
+              "",
+              "💡 Tip: A well-positioned 7 can force the opponent to waste an attack or a Joker."
+            ]
+          },
+          {
+            "id": "defense-interactions",
+            "icon": "3️⃣",
+            "title": "Important Interactions",
+            "content": [
+              "🔸 Classic Unit (1–6): Blocked by Joker ✅ | Blocked by Lucky 7 ✅",
+              "🔸 8 or 9: Blocked by Joker ✅ | Blocked by Lucky 7 ✅",
+              "🔸 Jack: Blocked by Joker ✅ | Blocked by Lucky 7 ✅",
+              "🔸 King: Blocked by Joker ❌ | Blocked by Lucky 7 ❌",
+              "🔸 Joker: Blocked by Joker ✅ | Blocked by Lucky 7 ✅",
+              "🔸 Revolution (10): Blocked by Joker ❌ | Blocked by Lucky 7 ❌"
+            ]
+          },
+          {
+            "id": "defense-strategy",
+            "icon": "4️⃣",
+            "title": "Defensive Strategy",
+            "content": [
+              "🎯 Anticipate: Keep at least one means of defense active each turn.",
+              "🎯 Protect key columns: Place a Lucky 7 on the most advanced column.",
+              "🎯 Force opponent choices: Make them believe a column is vulnerable when it is protected.",
+              "🎯 Manage resources: A Joker used too early can cost the game."
+            ]
+          },
+          {
+            "id": "defense-summary",
+            "icon": "📌",
+            "title": "Quick Summary",
+            "content": [
+              "🃏 Joker = universal defense against everything except Revolution.",
+              "7️⃣ Lucky 7 = local defense on its column.",
+              "🚫 No card blocks the Revolution."
+            ]
+          }
+        ]
+      },
+      {
+        "key": "chapter6",
+        "title": "Strategic Shuffle – Rebuilding your Deck",
+        "subtitle": "Chapter 6 • The Strategic Shuffle",
+        "sections": [
+          {
+            "id": "melange-intro",
+            "icon": "🔄",
+            "title": "Strategic Shuffle – Rebuilding your Deck",
+            "content": [
+              "In UNIT, it is sometimes necessary to shuffle cards from the grave with the deck to continue playing.",
+              "This action, called strategic shuffle, can be used to retrieve key cards or avoid getting stuck."
+            ]
+          },
+          {
+            "id": "quand-melanger",
+            "icon": "🎯",
+            "title": "When to perform a strategic shuffle?",
+            "content": [
+              "A strategic shuffle can be performed before any other action of your turn when:",
+              "",
+              "• You want to reintroduce important cards into your deck.",
+              "• You are stuck in your progress.",
+              "• Your deck is not yet empty but you want to reset the distribution."
+            ]
+          },
+          {
+            "id": "regles-melange",
+            "icon": "⚙️",
+            "title": "Rules of the strategic shuffle",
+            "content": [
+              "📅 Moment:",
+              "• Must be done at the start of your turn, before discarding or drawing.",
+              "",
+              "🔄 Procedure:",
+              "• You discard all cards from your hand.",
+              "• The 2 cards in reserve remain in place.",
+              "• You shuffle your deck and your grave to form a new deck.",
+              "",
+              "🥇 First time:",
+              "• During the first strategic shuffle of the game, you can play normally after the shuffle.",
+              "",
+              "🔁 Subsequent times:",
+              "• All strategic shuffles after the first one force you to pass your turn after the shuffle (no action possible)."
+            ]
+          },
+          {
+            "id": "limitations-melange",
+            "icon": "🚫",
+            "title": "Limitations after subsequent shuffles",
+            "content": [
+              "If you perform a strategic shuffle after the first one:",
+              "",
+              "❌ You cannot attack that turn.",
+              "❌ You cannot use a Joker to defend yourself on the following opponent's turn.",
+              "✅ A Lucky 7 already active on the field still retains its defense."
+            ]
+          },
+          {
+            "id": "cas-particuliers",
+            "icon": "📌",
+            "title": "Special Cases",
+            "content": [
+              "🗂️ Empty Deck:",
+              "• If your deck is empty when drawing, you automatically shuffle the grave with the deck, without losing your turn.",
+              "• This case is not considered a strategic shuffle.",
+              "",
+              "⚠️ Risky Strategy:",
+              "• Multiplying strategic shuffles increases randomness and can delay your plans.",
+              "• Better to keep this option as a punctual tool, not an automatism."
+            ]
+          },
+          {
+            "id": "astuce-strategique",
+            "icon": "🧠",
+            "title": "Strategic Tip",
+            "content": [
+              "The strategic shuffle is a double-edged sword:",
+              "",
+              "✅ It can unlock a situation...",
+              "❌ ...but it often costs you tempo.",
+              "",
+              "💡 Use it with a clear goal, not out of habit."
+            ],
+            "highlight": "🎯 Advice: Plan your strategic shuffle based on specific cards you want to retrieve, not just to 'see what happens'."
+          }
+        ]
+      },
+      {
+        "key": "chapter7",
+        "title": "The Sacrifice – Playing a Face Card",
+        "subtitle": "Chapter 7 • The Sacrifice",
+        "sections": [
+          {
+            "id": "sacrifice-intro",
+            "icon": "⚔️",
+            "title": "The Sacrifice – Playing a Face Card",
+            "content": [
+              "In UNIT, to play certain special cards called face cards (King, Queen, Jack), it is possible to use the sacrifice mechanic.",
+              "This action consists of removing cards already placed on the field to pay the summoning cost."
+            ]
+          },
+          {
+            "id": "principe-sacrifice",
+            "icon": "🎯",
+            "title": "Principle of Sacrifice",
+            "content": [
+              "🎯 Objective: Remove a certain number of cards from the field to summon a face card.",
+              "🪦 Destination: Sacrificed cards go to the grave after use.",
+              "📏 Key Rule: Always start with the highest card of each chosen column."
+            ]
+          },
+          {
+            "id": "cartes-non-sacrifiables",
+            "icon": "🚫",
+            "title": "Cards impossible to sacrifice",
+            "content": [
+              "❌ Ace",
+              "❌ Lucky 7 placed in the column",
+              "❌ Revolution 10",
+              "❌ Any card located under an Ace, a placed 7 or a 10: these cards are blocked and non-sacrificable."
+            ]
+          },
+          {
+            "id": "regles-selection",
+            "icon": "📌",
+            "title": "Selection Rules",
+            "content": [
+              "🔝 Always start with the highest card of a column.",
+              "• Example: if the highest card in Spades is a 6♠, you can sacrifice it.",
+              "",
+              "🔄 Complete with other highest cards from other columns if necessary.",
+              "• Example: 6♠ + 8♥ + 2♦ for a King.",
+              "",
+              "🌈 Mixing suits allowed as long as each chosen card is the highest of its column.",
+              "",
+              "⛓️ Chain sacrifice in a column:",
+              "• You can go down from the highest to the bottom as long as no blocking card is encountered.",
+              "• Example: 6♠, 5♠, 4♠ in the same column."
+            ]
+          },
+          {
+            "id": "couts-invocation",
+            "icon": "💰",
+            "title": "Summoning costs by sacrifice",
+            "content": [
+              "👑 King: 3 cards",
+              "👸 Queen: 2 cards",
+              "🃏 Jack: 1 card (8 or 9 only)"
+            ]
+          },
+          {
+            "id": "attaque-immediate-valet",
+            "icon": "⚡",
+            "title": "Special Case – Immediate Attack with Jack",
+            "content": [
+              "If a Jack is summoned by:",
+              "• Sacrifice",
+              "• Or Joker",
+              "",
+              "➡️ It can attack immediately in the same turn.",
+              "",
+              "(Otherwise, it becomes passive and cannot attack until the next turn.)"
+            ]
+          },
+          {
+            "id": "astuce-sacrifice",
+            "icon": "🧠",
+            "title": "Strategic Tip",
+            "content": [
+              "Sacrifice is a strong tactical choice:",
+              "",
+              "❌ You lose cards already placed...",
+              "✅ ...but you gain a master piece.",
+              "",
+              "💡 Use it to break opponent tempo or surprise with an immediate effect."
+            ],
+            "highlight": "⚔️ Sacrifice transforms your present resources into immediate power. Timing is crucial!"
+          }
+        ]
+      },
+      {
+        "key": "chapter8",
+        "title": "The King – Supreme Shield",
+        "subtitle": "Chapter 8 • The King",
+        "sections": [
+          {
+            "id": "roi-intro",
+            "icon": "👑",
+            "title": "The King – Supreme Shield",
+            "content": [
+              "The King is the ultimate defensive piece in UNIT.",
+              "When in play, it fully protects your health points against attacks from units of the same suit, and forces the opponent to find a specific answer."
+            ]
+          },
+          {
+            "id": "effet-roi",
+            "icon": "🎯",
+            "title": "King's Effect",
+            "content": [
+              "As long as a King is present for a given suit:",
+              "",
+              "🛡️ No unit of this suit lower than 8 can attack your health points.",
+              "🛡️ These units cannot destroy the King either.",
+              "",
+              "Only certain attacks can bypass the King:",
+              "⚔️ 8 or 9 of the same suit → beat the King and destroy it.",
+              "🃏 Joker → destroys a King of any suit.",
+              "💥 Revolution (10) → destroys the King and inflicts 10 direct damage."
+            ]
+          },
+          {
+            "id": "conditions-roi",
+            "icon": "⚙️",
+            "title": "Conditions to play a King",
+            "content": [
+              "Three possible methods:",
+              "",
+              "⚔️ Sacrifice:",
+              "• Sacrifice 3 cards, each being the highest of its column (excluding Ace, 7, 10).",
+              "",
+              "🃏 Joker:",
+              "• Play a Joker, which then goes to the grave.",
+              "",
+              "7️⃣ Lucky 7:",
+              "• Play a Lucky 7, which then goes to the grave."
+            ]
+          },
+          {
+            "id": "positionnement-roi",
+            "icon": "📌",
+            "title": "Positioning",
+            "content": [
+              "👑 The King is placed on the \"King\" slot of its suit on the board.",
+              "🔒 Once placed, it remains until destroyed by a valid attack."
+            ]
+          },
+          {
+            "id": "perte-roi",
+            "icon": "💥",
+            "title": "Loss of the King",
+            "content": [
+              "If the King is beaten by an 8, 9, Joker or Revolution:",
+              "",
+              "🪦 It is sent to the grave immediately.",
+              "❌ The protection it offered disappears instantly."
+            ]
+          },
+          {
+            "id": "strategie-roi",
+            "icon": "🧠",
+            "title": "Strategy with the King",
+            "content": [
+              "🛡️ Defensive: Block an advanced suit of the opponent to gain time.",
+              "⏰ Temporary: Force the opponent to waste an 8, 9 or Joker to clear the way.",
+              "🚧 Preventive: Placing a King early can curb an entire category of the opponent."
+            ]
+          },
+          {
+            "id": "resume-roi",
+            "icon": "📌",
+            "title": "To Remember",
+            "content": [
+              "The King does not win the game, but it can prevent the opponent from taking it from you.",
+              "Well played, it becomes a real wall in the opponent's tempo."
+            ],
+            "highlight": "👑 The King transforms passive defense into active board control. Strategic placement can change the course of a game!"
+          }
+        ]
+      },
+      {
+        "key": "chapter9",
+        "title": "The Queen – Ladies First",
+        "subtitle": "Chapter 9 • The Queen",
+        "sections": [
+          {
+            "id": "dame-intro",
+            "icon": "👸",
+            "title": "The Queen – Ladies First",
+            "content": [
+              "The Queen is the only completely unassailable card in UNIT.",
+              "It can never be destroyed or prevented from accomplishing its effect.",
+              "Its main role: heal your health points."
+            ]
+          },
+          {
+            "id": "immunite-dame",
+            "icon": "🛡️",
+            "title": "Absolute Immunity",
+            "content": [
+              "The Queen can never be attacked by any card or effect:",
+              "",
+              "✅ Immune to Joker",
+              "✅ Immune to Jack",
+              "✅ Immune to classic units",
+              "",
+              "Its effect triggers no matter what."
+            ]
+          },
+          {
+            "id": "effet-soin",
+            "icon": "🎯",
+            "title": "Main Effect – Heal",
+            "content": [
+              "Depending on the method used to play it, the Queen heals immediately:",
+              "",
+              "⚔️ Sacrifice (2 cards, each the highest of its column):",
+              "• +2 HP → Queen goes to grave",
+              "",
+              "7️⃣ Played with a Lucky 7:",
+              "• +2 HP → Queen and 7 go to grave",
+              "",
+              "🃏 Played with a Joker:",
+              "• +2 HP → Queen and Joker go to grave"
+            ]
+          },
+          {
+            "id": "defi-dame",
+            "icon": "🎲",
+            "title": "Secondary Effect – The Good Lady's Challenge",
+            "content": [
+              "If the Queen is played as the 13th card (after the 10, Jack, King, etc. in the discard or global game - advanced rule):",
+              "• It can issue a challenge: the player draws a card.",
+              "• If it's a Red card (Hearts/Diamonds): Heal doubled (+4 HP).",
+              "• If it's a Black card (Spades/Clubs): Heal canceled.",
+              "(This rule depends on the active variant)."
+            ]
+          },
+          {
+            "id": "resume-dame",
+            "icon": "📌",
+            "title": "To Remember",
+            "content": [
+              "The Queen is an instant heal.",
+              "It does not remain on the field, it performs its effect and goes to the grave.",
+              "It is the best way to recover HP in an emergency."
+            ]
+          }
+        ]
+      },
+      {
+        "key": "chapter10",
+        "title": "The Jack – The Elimination Weapon",
+        "subtitle": "Chapter 10 • The Jack",
+        "sections": [
+          {
+            "id": "valet-intro",
+            "icon": "🗡️",
+            "title": "The Jack – The Elimination Weapon",
+            "content": [
+              "The Jack is an offensive card in UNIT.",
+              "It is one of the most powerful ways to destroy opponent columns and apply pressure, but it has a cost: it is always sacrificed after use."
+            ]
+          },
+          {
+            "id": "role-valet",
+            "icon": "🎯",
+            "title": "Main Role",
+            "content": [
+              "The Jack is a specialized attacker:",
+              "",
+              "⚔️ It can destroy an opponent unit of the same suit.",
+              "💥 Against small units, it is capable of sweeping an entire column.",
+              "🪦 However, it is consumed as soon as it attacks."
+            ]
+          },
+          {
+            "id": "invocation-valet",
+            "icon": "⚙️",
+            "title": "Summoning the Jack",
+            "content": [
+              "Three ways to bring it into play:",
+              "",
+              "⚔️ Sacrifice:",
+              "• Sacrifice an 8 or a 9 (highest card of a column)",
+              "• State: Immediately active",
+              "",
+              "🃏 Joker:",
+              "• Play a Joker (which goes to grave)",
+              "• State: Immediately active",
+              "",
+              "7️⃣ Lucky 7:",
+              "• Play a Lucky 7 (which goes to grave)",
+              "• State: Placed passive → attack available only next turn"
+            ]
+          },
+          {
+            "id": "cycle-fonctionnement",
+            "icon": "🔄",
+            "title": "Operating Cycle",
+            "content": [
+              "⚡ Active:",
+              "• Can immediately attack an opponent unit of the same suit.",
+              "• After its attack, the Jack is sent to the grave.",
+              "",
+              "😴 Passive:",
+              "• If placed via a Lucky 7, the Jack cannot attack this turn.",
+              "• It becomes active at the start of the next turn."
+            ]
+          },
+          {
+            "id": "cibles-autorisees",
+            "icon": "⚔️",
+            "title": "Authorized Targets",
+            "content": [
+              "The Jack can attack:",
+              "",
+              "✅ A unit of value ≤ 6 → the entire opponent column is destroyed (column sent to grave + Jack to grave).",
+              "⚠️ A unit of 8 or 9 → direct combat, result depending on rules (risk of losing the Jack).",
+              "",
+              "The Jack cannot attack:",
+              "",
+              "❌ A Queen (protected by Ladies First).",
+              "❌ A King.",
+              "❌ Another Joker."
+            ]
+          },
+          {
+            "id": "exemples-actions",
+            "icon": "💥",
+            "title": "Example Actions",
+            "content": [
+              "🎯 Active Jack → attacks a 5♠ → entire opponent Spade column is destroyed, Jack also goes to grave.",
+              "",
+              "⚠️ Active Jack → attacks an 8♥ → risky combat, Jack can be countered.",
+              "",
+              "⚠️ Active Jack → attacks a 9♦ → same, possible counter."
+            ]
+          },
+          {
+            "id": "strategie-valet",
+            "icon": "🧠",
+            "title": "Strategy with the Jack",
+            "content": [
+              "💥 Breakthrough weapon: destroy an advanced opponent column to break their tempo.",
+              "⚖️ Calculated sacrifice: losing a Jack to force the opponent to rebuild an entire column can be worth it.",
+              "⚡ Immediate combo: summoning a Jack via a Joker or sacrifice allows attacking directly and surprising the opponent.",
+              "⏰ Timing: waiting for the opponent to invest heavily in a column before destroying it maximizes the Jack's value."
+            ]
+          },
+          {
+            "id": "resume-valet",
+            "icon": "📌",
+            "title": "To Remember",
+            "content": [
+              "The Jack is a double-edged sword: it destroys, but destroys itself with it.",
+              "Well played, it can turn a game around in a single action."
+            ],
+            "highlight": "🗡️ The Jack embodies tactical sacrifice: losing to win better. Its timing of use can determine the outcome of a game!"
+          }
+        ]
+      },
+      {
+        "key": "chapter11",
+        "title": "The Joker – The Legendary Card",
+        "subtitle": "Chapter 11 • The Joker",
+        "sections": [
+          {
+            "id": "joker-intro",
+            "icon": "🃏",
+            "title": "The Joker – The Legendary Card",
+            "content": [
+              "The Joker is the most powerful and versatile card in UNIT.",
+              "It is a unique card, capable of intervening in almost all phases of the game: attack, defense, activation, healing, or even temporary replacement.",
+              "But be careful: each use of the Joker is single-use and always has a significant consequence."
+            ]
+          },
+          {
+            "id": "roles-joker",
+            "icon": "🎯",
+            "title": "The Joker's Roles",
+            "content": [
+              "The Joker can be used in 5 main ways:",
+              "",
+              "⚔️ Attack (destroy units or face cards)",
+              "🛡️ Defense (block an attack)",
+              "🔄 Replace (temporarily hold the place of a missing card)",
+              "💊 Heal (+3 health points)",
+              "🔧 Activate a column or a face card (like a Lucky 7)"
+            ]
+          },
+          {
+            "id": "utilisation-offensive",
+            "icon": "1️⃣",
+            "title": "Offensive Use – Attack",
+            "content": [
+              "The Joker can destroy any unit in an opponent column, even if it is not the highest.",
+              "",
+              "Effects:",
+              "• The destroyed card is sent to the grave.",
+              "• All cards above become unusable until the column is rebuilt.",
+              "",
+              "Example: if a Joker destroys a 6♣, then the 7♣, 8♣, 9♣ and 10♣ can no longer be played until the chain is repaired.",
+              "",
+              "The Joker can also:",
+              "✅ Destroy a King (regardless of suit)",
+              "✅ Destroy a Jack (regardless of suit)",
+              "",
+              "🚫 Limits:",
+              "❌ Cannot attack an Ace",
+              "❌ Cannot attack a Lucky 7",
+              "❌ Cannot attack a Revolution 10"
+            ]
+          },
+          {
+            "id": "utilisation-defensive",
+            "icon": "2️⃣",
+            "title": "Defensive Use – Blocking",
+            "content": [
+              "The Joker can be played from hand or reserve during the opponent's turn.",
+              "",
+              "✅ Effect: it blocks any attack (unit, Jack, opponent Joker, etc.).",
+              "🚫 Sole exception: it cannot block a Revolution.",
+              "",
+              "After use, it goes to the grave."
+            ]
+          },
+          {
+            "id": "utilisation-remplacement",
+            "icon": "3️⃣",
+            "title": "Use as Replacement (Substitution)",
+            "content": [
+              "The Joker can be placed on the field to temporarily replace a missing card in a column.",
+              "This allows continuing to build the column without waiting for the real card.",
+              "",
+              "⚠️ Important consequences:",
+              "As long as the Joker replaces a card:",
+              "• The corresponding unit category is deactivated (can no longer attack).",
+              "• Example: a Joker replaces a 4♠ → the 4–5–6♠ category cannot attack.",
+              "• The units of the category are protected: they cannot be destroyed by an opponent Jack or Joker.",
+              "• A Revolution is impossible if a Joker is present in the column.",
+              "",
+              "📌 Possible swap:",
+              "• The player can swap the Joker for the real card (if they draw it).",
+              "• The Joker then returns to hand or reserve.",
+              "• This swap counts as an action."
+            ]
+          },
+          {
+            "id": "utilisation-soin",
+            "icon": "4️⃣",
+            "title": "Use in Healing",
+            "content": [
+              "Played directly from hand or reserve, the Joker can:",
+              "",
+              "💊 Immediately restore +3 health points to the player.",
+              "🪦 After use, it goes to the grave."
+            ]
+          },
+          {
+            "id": "utilisation-activateur",
+            "icon": "5️⃣",
+            "title": "Use as Activator",
+            "content": [
+              "The Joker can replace a Lucky 7 as a column activator.",
+              "It can therefore be placed in reserveSuitColonne to allow passing from 6 to 8.",
+              "It can also be sacrificed to summon a King, a Queen, or a Jack, exactly like a 7.",
+              "",
+              "⚠️ Warning: a Joker used this way is immediately sent to the grave."
+            ]
+          },
+          {
+            "id": "interaction-speciale",
+            "icon": "⚔️",
+            "title": "Special Interaction – Joker vs Lucky 7",
+            "content": [
+              "If a Joker attacks a unit of a column where a Lucky 7 is active, then:",
+              "",
+              "🛡️ The attack is blocked by the 7.",
+              "🪦 The Joker is sent to the grave.",
+              "😴 The 7 is then deactivated (it remains placed but no longer protects)."
+            ]
+          },
+          {
+            "id": "strategie-joker",
+            "icon": "🧠",
+            "title": "Strategy with the Joker",
+            "content": [
+              "🔄 Polymorph: it can do everything, but each choice is definitive.",
+              "🛡️ Defensive weapon: often more profitable used in blocking than in attack.",
+              "🚫 Brake on Revolution: placing a Joker in a column advances you… but blocks access to Revolution.",
+              "💎 Rare resource: each Joker is precious, better to use it in a key moment."
+            ]
+          },
+          {
+            "id": "resume-joker",
+            "icon": "📌",
+            "title": "Quick Summary",
+            "content": [
+              "📊 Usage → Main Effect → Limit:",
+              "",
+              "⚔️ Attack → Destroys King, Jack or unit → Not Ace, 7, 10",
+              "🛡️ Defense → Blocks any attack → Not Revolution",
+              "🔄 Replacement → Replaces missing card → Deactivates category / blocks Revolution",
+              "💊 Heal → +3 HP immediate → Single use",
+              "🔧 Activator → Replaces a 7 for column or face card → Goes to grave"
+            ]
+          },
+          {
+            "id": "conclusion-joker",
+            "icon": "📖",
+            "title": "To Remember",
+            "content": [
+              "The Joker is the most flexible and dangerous card in UNIT.",
+              "Used poorly, it can block your own strategies (especially Revolution).",
+              "Used well, it can save a game or destroy the opponent's plan at the decisive moment."
+            ],
+            "highlight": "🃏 The Joker is the embodiment of tactical versatility: one card, five uses, a thousand possibilities. Mastering its timing is mastering UNIT!"
+          }
+        ]
+      }
+    ]
   }
 }
