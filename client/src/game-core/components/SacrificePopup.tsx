@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import { useGameStore } from "../store/GameStore";
+import { useTranslation } from "react-i18next";
 import "./SacrificePopup.css";
 import { Card } from "../types/game";
 
@@ -13,6 +16,7 @@ export const SacrificePopup: React.FC = () => {
     setSelectedSacrificeCards,
     selectedSacrificeCards,
   } = useGameStore();
+  const { t } = useTranslation();
 
   if (!showSacrificePopup || selectedSpecialCards.length === 0) return null;
 
@@ -163,14 +167,14 @@ export const SacrificePopup: React.FC = () => {
         </div>
 
         <p className="selection-info">
-          Sélectionnez {requiredCards} cartes à sacrifier (
+          {t("game.sacrifice.selectCards", { count: requiredCards })}
           {selectedSacrificeCards.length} sélectionnée
           {selectedSacrificeCards.length > 1 ? "s" : ""})
         </p>
         <p className="selection-help">
           {specialCard.value === "J"
             ? "Sélectionnez uniquement des 8 ou 9"
-            : "Sélectionnez les cartes que vous avez jouées sur le terrain (dans l'ordre décroissant pour une même suite)"}
+            : t("game.sacrifice.selectCardsOnField")}
         </p>
 
         <div className="suits-container">
@@ -184,9 +188,8 @@ export const SacrificePopup: React.FC = () => {
                   return (
                     <div
                       key={card.id}
-                      className={`card-slot ${selectedSacrificeCards.includes(card) ? "selected" : ""} ${
-                        !isSelectable ? "invalid" : ""
-                      }`}
+                      className={`card-slot ${selectedSacrificeCards.includes(card) ? "selected" : ""} ${!isSelectable ? "invalid" : ""
+                        }`}
                       onClick={() => handleCardSelect(card, cards)}
                     >
                       {card.value}
@@ -200,7 +203,7 @@ export const SacrificePopup: React.FC = () => {
 
         <div className="popup-actions">
           <button className="cancel-button" onClick={handleClose}>
-            Annuler
+            {t("game.ui.cancel")}
           </button>
           <button
             className="confirm-button"

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useGameStore } from "../store/GameStore";
 import "./AttackPopup.css";
@@ -9,53 +11,45 @@ import { AudioManager } from "../sound-design/audioManager";
 type AttackType = "unit" | "health";
 
 interface AttackPopupProps {
+  isOpen: boolean;
   onClose: () => void;
-  onConfirm: (attackCard: Card, target: AttackTarget) => void;
+  onConfirm: (
+    attackType: AttackType,
+    target?: AttackTarget,
+    card?: Card,
+  ) => void;
+  attackerCard: Card | null;
+  opponentCards: Card[];
+  opponentHealth: number;
 }
 
-export const AttackPopup: React.FC<AttackPopupProps> = ({
+const AttackPopup: React.FC<AttackPopupProps> = ({
+  isOpen,
   onClose,
   onConfirm,
+  attackerCard,
+  opponentCards,
+  opponentHealth,
 }) => {
   const {
-    opponentPlayerColumns,
-    turnTimeRemaining,
-    turnTimeInit,
     currentAttackCard,
-    gameId,
-    currentPlayer,
-    validAttackTargets,
+    turnTimeRemaining,
   } = useGameStore();
 
-  // Get the player ID from the current player
-  const playerId = currentPlayer?.id;
-
-  // Check if the attack card is a unit card with value less than 8
-  const isLowValueUnitCard: boolean = !!(
-    currentAttackCard &&
-    ["A", "2", "3", "4", "5", "6", "7"].includes(currentAttackCard.value)
-  );
-
   const isJokerCard = currentAttackCard?.value === "JOKER";
+  const isLowValueUnitCard =
+    currentAttackCard &&
+    ["A", "2", "3", "4", "5", "6", "7"].includes(currentAttackCard.value);
 
-  // Check if health attack is blocked by a King in the same suit
-  const isHealthAttackBlocked = (): boolean => {
-    if (!currentAttackCard || isJokerCard) return false;
-    const currentSuit = currentAttackCard.suit;
-    const opponentColumn = opponentPlayerColumns[currentSuit];
-    return opponentColumn.faceCards?.K !== undefined;
-  };
-
-  // Default attack type logic
+  // Determine default attack type
   const getDefaultAttackType = (): AttackType => {
     if (isJokerCard) return "unit"; // Joker defaults to unit attack
-    if (isLowValueUnitCard && !isHealthAttackBlocked()) return "health"; // Low value unit cards default to health attack if not blocked
+    if (isLowValueUnitCard) return "health"; // Low value unit cards default to health attack
     return "unit"; // Default to unit attack otherwise
   };
   const [selectedAttackType, setSelectedAttackType] = useState<AttackType>(
     getDefaultAttackType(),
   );
-  const healthAttackBlocked = isHealthAttackBlocked();
 
   // Calculate damage points based on the card value
   const calculateDamagePoints = () => {
@@ -76,6 +70,7 @@ export const AttackPopup: React.FC<AttackPopupProps> = ({
       J: 10,
       Q: 10,
       K: 10,
+      JOKER: 0,
     };
 
     return damageMap[currentAttackCard.value] || 1;
@@ -99,23 +94,65 @@ export const AttackPopup: React.FC<AttackPopupProps> = ({
 
   // Handle attack confirmation
   const handleConfirm = () => {
-    if (!selectedTarget || !selectedTarget.valid || !currentAttackCard) return;
+    // Validate selection
+    if (selectedAttackType === "unit" && !selectedTarget) {
+      return;
+    }
 
-    onConfirm(currentAttackCard, selectedTarget);
+    // Play sound effect
+    AudioManager.getInstance().playCardSound();
 
-    handleClose();
+    // Confirm attack
+    if (selectedAttackType === "health") {
+      onConfirm("health");
+    } else {
+      onConfirm("unit", selectedTarget || undefined, currentAttackCard || undefined);
+    }
   };
 
-  // Setup countdown timer
+  // Update available targets when attack type changes
   useEffect(() => {
-    // Initialize timer with the current turn time remaining
-    setTimeRemaining(turnTimeRemaining > 0 ? turnTimeRemaining : turnTimeInit);
+    if (selectedAttackType === "unit") {
+      // Filter opponent cards that can be attacked
+      // For now, we assume all opponent cards can be attacked unless there are specific rules
+      // In a real game, we might filter based on card effects, etc.
+      const targets: AttackTarget[] = opponentCards.map((card) => ({
+        type: "card",
+        card,
+      }));
+      setAvailableTargets(targets);
 
-    // Create interval to update timer
+      // Auto-select first target if none selected
+      if (targets.length > 0 && !selectedTarget) {
+        setSelectedTarget(targets[0]);
+      }
+    } else {
+      setAvailableTargets([]);
+      setSelectedTarget(null);
+    }
+  }, [selectedAttackType, opponentCards, selectedTarget]);
+
+  // Sync with global timer
+  useEffect(() => {
+    setTimeRemaining(turnTimeRemaining);
+  }, [turnTimeRemaining]);
+
+  // Local timer countdown
+  useEffect(() => {
+    if (!isOpen) {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+        timerRef.current = null;
+      }
+      return;
+    }
+
     timerRef.current = setInterval(() => {
-      setTimeRemaining((prev) => {
-        if (prev <= 1) {
-          // Time's up - close the popup
+      setTimeRemaining((prev: number) => {
+        if (prev <= 0) {
+          if (timerRef.current) {
+            clearInterval(timerRef.current);
+          }
           handleClose();
           return 0;
         }
@@ -128,227 +165,88 @@ export const AttackPopup: React.FC<AttackPopupProps> = ({
         clearInterval(timerRef.current);
       }
     };
-  }, [turnTimeRemaining, turnTimeInit, handleClose]);
+  }, [isOpen, handleClose]);
 
-  // Get attack targets from game state when attack type or card changes
+  // Reset state when popup opens
   useEffect(() => {
-    setSelectedTarget(null);
-
-    // Only process targets if we have a valid attack card
-    if (!currentAttackCard || !gameId || !playerId) {
-      setAvailableTargets([]);
-      return;
+    if (isOpen) {
+      setSelectedAttackType(getDefaultAttackType());
+      // Reset target selection logic will run in the other useEffect
     }
+  }, [isOpen, currentAttackCard]);
 
-    if (
-      validAttackTargets &&
-      currentAttackCard.id &&
-      validAttackTargets[currentAttackCard.id]
-    ) {
-      const targets = validAttackTargets[currentAttackCard.id];
-
-      // Filter targets based on selected attack type
-      const filteredTargets = targets.filter((target) =>
-        selectedAttackType === "health"
-          ? target.attackType === "health"
-          : target.attackType === "unit",
-      );
-
-      // Process the targets to ensure column references are correct
-      const processedTargets = filteredTargets.map((target) => {
-        if (target.suit && target.suit !== "SPECIAL") {
-          // For unit attacks, ensure we have the correct column reference
-          return {
-            ...target,
-            column: opponentPlayerColumns[target.suit],
-          };
-        }
-        return target;
-      });
-
-      setAvailableTargets(processedTargets);
-    } else {
-      setAvailableTargets([]);
-    }
-  }, [
-    selectedAttackType,
-    currentAttackCard,
-    gameId,
-    playerId,
-    opponentPlayerColumns,
-    validAttackTargets,
-  ]);
-
-  // Get suit symbol
-  const getSuitSymbol = (suit: string) => {
-    switch (suit.toUpperCase()) {
-      case "HEARTS":
-        return "♥";
-      case "DIAMONDS":
-        return "♦";
-      case "CLUBS":
-        return "♣";
-      case "SPADES":
-        return "♠";
-      default:
-        return "";
-    }
-  };
-
-  // Group cards by suit for display
-  const groupTargetsBySuit = () => {
-    // For health attack, we don't need to group by suit
-    if (selectedAttackType === "health") {
-      return { DAMAGE: availableTargets };
-    }
-
-    // For unit attack, group by suit as before
-    const grouped: { [key: string]: AttackTarget[] } = {
-      HEARTS: [] as AttackTarget[],
-      DIAMONDS: [] as AttackTarget[],
-      CLUBS: [] as AttackTarget[],
-      SPADES: [] as AttackTarget[],
-    };
-
-    availableTargets.forEach((target) => {
-      if (target.suit && grouped[target.suit]) {
-        grouped[target.suit].push(target);
-      }
-    });
-
-    return grouped;
-  };
-
-  const groupedTargets = groupTargetsBySuit();
+  if (!isOpen) return null;
 
   return (
     <div className="attack-popup-overlay">
-      <div className="attack-popup">
-        <div className="popup-header">
-          <h2>
-            {selectedAttackType === "unit"
-              ? "🗡️ Unit Attack"
-              : "❤️ Health Attack"}
-          </h2>
-          <button className="close-button" onClick={handleClose}>
-            ×
-          </button>
+      <div className="attack-popup-content">
+        <div className="attack-popup-header">
+          <h2>{t("attack.chooseAttack")}</h2>
+          <div className="timer-display">
+            {t("game.timeRemaining")}: {timeRemaining}s
+          </div>
         </div>
 
-        <div className="attack-type-selector">
-          <button
-            className={`attack-type-button ${selectedAttackType === "unit" && !isLowValueUnitCard ? "selected" : ""} ${
-              isLowValueUnitCard ? "disabled" : ""
-            }`}
-            onClick={() => !isLowValueUnitCard && setSelectedAttackType("unit")}
-            disabled={isLowValueUnitCard}
-            title={
-              isLowValueUnitCard
-                ? "Unit attack unavailable for cards below 8"
-                : ""
-            }
+        <div className="attack-options">
+          <div
+            className={`attack-option ${selectedAttackType === "health" ? "selected" : ""
+              }`}
+            onClick={() => setSelectedAttackType("health")}
           >
-            🗡️ Unit Attack {isLowValueUnitCard && "(Unavailable)"}
-          </button>
-          <button
-            className={`attack-type-button ${selectedAttackType === "health" ? "selected" : ""} ${
-              isJokerCard || healthAttackBlocked ? "disabled" : ""
-            }`}
-            onClick={() =>
-              !isJokerCard &&
-              !healthAttackBlocked &&
-              setSelectedAttackType("health")
-            }
-            disabled={isJokerCard || healthAttackBlocked}
-            title={
-              isJokerCard
-                ? "Joker cannot attack health directly"
-                : healthAttackBlocked
-                  ? "Health attack blocked by King in same suit"
-                  : "Attaquer les points de vie de l'adversaire"
-            }
-          >
-            ❤️ Health Attack{" "}
-            {(isJokerCard || healthAttackBlocked) && "(Unavailable)"}
-          </button>
-        </div>
-
-        <p className="selection-info">
-          Time remaining:{" "}
-          <span className={`timer ${timeRemaining <= 3 ? "urgent" : ""}`}>
-            {timeRemaining}s
-          </span>
-        </p>
-
-        <div className="suits-container">
-          {selectedAttackType === "health" ? (
-            // For health attack, show damage points
-            <div className="damage-container">
-              <div className="damage-header">💥 Damage Points</div>
-              <div className="damage-value">
-                {availableTargets.length > 0 && (
-                  <div
-                    className={`damage-slot ${selectedTarget === availableTargets[0] ? "selected" : ""}`}
-                    onClick={() =>
-                      availableTargets[0].valid &&
-                      setSelectedTarget(availableTargets[0])
-                    }
-                  >
-                    {damagePoints}
-                  </div>
-                )}
-              </div>
-              <div className="damage-description">
-                Your attack will deal {damagePoints} damage points to your
-                opponent
-              </div>
+            <div className="option-icon">❤️</div>
+            <div className="option-details">
+              <h3>{t("attack.attackHealth")}</h3>
+              <p>{t("game.damagePoints")}: {damagePoints}</p>
             </div>
-          ) : (
-            // For unit attack, show suits as before
-            Object.entries(groupedTargets).map(([suit, targets]) => (
-              <div key={suit} className="suit-column">
-                {!isLowValueUnitCard && (
-                  <>
-                    <div className={`suit-header ${suit}`}>
-                      {getSuitSymbol(suit)}
-                    </div>
-                    <div className="suit-cards">
-                      {targets.map((target) => (
-                        <div
-                          key={`${target.suit}-${target.cardValue}`}
-                          className={`card-slot ${selectedTarget === target ? "selected" : ""} ${
-                            !target.valid ? "invalid" : ""
-                          }`}
-                          onClick={() =>
-                            target.valid && setSelectedTarget(target)
-                          }
-                        >
-                          {target.cardValue}
-                          {!target.valid && target.reason && (
-                            <div className="invalid-reason">
-                              {target.reason}
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                )}
-              </div>
-            ))
-          )}
+          </div>
+
+          <div
+            className={`attack-option ${selectedAttackType === "unit" ? "selected" : ""
+              }`}
+            onClick={() => setSelectedAttackType("unit")}
+          >
+            <div className="option-icon">⚔️</div>
+            <div className="option-details">
+              <h3>{t("attack.attackUnit")}</h3>
+              <p>{t("attack.selectTarget")}</p>
+            </div>
+          </div>
         </div>
 
-        <div className="popup-actions">
+        {selectedAttackType === "unit" && (
+          <div className="target-selection">
+            <h3>{t("attack.selectTarget")}</h3>
+            <div className="targets-list">
+              {availableTargets.length === 0 ? (
+                <p>{t("attack.noValidTargets")}</p>
+              ) : (
+                availableTargets.map((target: AttackTarget, index: number) => (
+                  <div
+                    key={index}
+                    className={`target-item ${selectedTarget === target ? "selected" : ""
+                      }`}
+                    onClick={() => setSelectedTarget(target)}
+                  >
+                    <div className="card-preview">
+                      {target.card?.value} {target.card?.suit}
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
+        )}
+
+        <div className="attack-popup-footer">
           <button className="cancel-button" onClick={handleClose}>
             {t("game.ui.cancel")}
           </button>
           <button
             className="confirm-button"
             onClick={handleConfirm}
-            disabled={!selectedTarget?.valid}
+            disabled={selectedAttackType === "unit" && !selectedTarget}
           >
-            {t("game.ui.confirm") + " & " + t("game.actions.endTurn")}
+            {t("game.ui.confirm")}
           </button>
         </div>
       </div>

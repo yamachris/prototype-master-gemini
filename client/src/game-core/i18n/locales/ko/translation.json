@@ -22,6 +22,10 @@
       "strategicShuffleFirst": "첫 번째 전략적 셔플! ⚠️ 다음 사용 시 턴이 종료됩니다.",
       "strategicShuffleNext": "전략적 셔플 완료 - 턴 종료"
     },
+    "notifications": {
+      "healthAttack": "You are under attack! Your opponent is dealing {{damage}} damage to your health.",
+      "unitAttack": "You are under attack! Your opponent is attacking your {{card}} card."
+    },
     "gameOver": {
       "title": "게임 종료",
       "surrendered": "포기했습니다",
@@ -60,7 +64,8 @@
       "strategicShuffle": "전략적 셔플",
       "cancel": "초기화",
       "confirm": "확인",
-      "opponentCards": "상대방 카드"
+      "opponentCards": "상대방 카드",
+      "acknowledge": "OK"
     },
     "attack": {
       "chooseAttack": "공격을 선택하세요",
@@ -86,7 +91,9 @@
       "block": "공격 방어",
       "decline": "공격 허용",
       "noJokers": "방어할 조커가 없습니다."
-    }
+    },
+    "timeRemaining": "Time Remaining",
+    "health": "Health"
   },
   "home": {
     "presentation": {
@@ -1223,5 +1230,12 @@
         ]
       }
     ]
+  },
+  "attack": {
+    "attackHealth": "Attack Health",
+    "attackUnit": "Attack Unit",
+    "blocked": "Blocked",
+    "success": "Attack Successful",
+    "blockedMessage": "This attack was blocked by the opponent."
   }
 }

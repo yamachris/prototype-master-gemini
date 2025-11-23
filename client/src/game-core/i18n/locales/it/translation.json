@@ -22,6 +22,10 @@
       "strategicShuffleFirst": "Primo Mescolamento Strategico! ⚠️ Il prossimo utilizzo ti farà saltare il turno.",
       "strategicShuffleNext": "Mescolamento strategico completato - Fine del tuo turno"
     },
+    "notifications": {
+      "healthAttack": "You are under attack! Your opponent is dealing {{damage}} damage to your health.",
+      "unitAttack": "You are under attack! Your opponent is attacking your {{card}} card."
+    },
     "gameOver": {
       "title": "Partita Terminata",
       "surrendered": "Hai abbandonato",
@@ -69,7 +73,8 @@
       "strategicShuffle": "Mischiata Strategica",
       "cancel": "Annulla",
       "confirm": "Conferma",
-      "opponentCards": "Carte dell'Avversario"
+      "opponentCards": "Carte dell'Avversario",
+      "acknowledge": "OK"
     },
     "attack": {
       "chooseAttack": "Scegli il tuo attacco",
@@ -95,7 +100,9 @@
       "block": "Blocca Attacco",
       "decline": "Lascia Passare l'Attacco",
       "noJokers": "Non hai Jolly per bloccare."
-    }
+    },
+    "timeRemaining": "Time Remaining",
+    "health": "Health"
   },
   "home": {
     "presentation": {
@@ -1232,5 +1239,12 @@
         ]
       }
     ]
+  },
+  "attack": {
+    "attackHealth": "Attack Health",
+    "attackUnit": "Attack Unit",
+    "blocked": "Blocked",
+    "success": "Attack Successful",
+    "blockedMessage": "This attack was blocked by the opponent."
   }
 }

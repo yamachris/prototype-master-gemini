@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import { Flag, AlertTriangle } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface GameFooterProps {
   currentTurn: number;
@@ -12,6 +15,7 @@ export function GameFooter({
   onSurrender,
   playerHealth,
 }: GameFooterProps) {
+  const { t } = useTranslation();
   const handleSurrender = () => {
     if (window.confirm("Êtes-vous sûr de vouloir abandonner la partie ?")) {
       onSurrender();
@@ -24,7 +28,7 @@ export function GameFooter({
         <div className="flex items-center gap-4">
           <div className="bg-blue-100 px-4 py-2 rounded-lg">
             <span className="text-blue-800 font-medium">
-              Tour : {currentTurn}
+              {t("game.turn", { number: currentTurn })}
             </span>
           </div>
 

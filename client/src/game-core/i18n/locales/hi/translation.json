@@ -22,6 +22,10 @@
       "strategicShuffleFirst": "पहला रणनीतिक शफल! ⚠️ अगली बार उपयोग करने पर आपकी चाल समाप्त हो जाएगी।",
       "strategicShuffleNext": "रणनीतिक शफल पूरा - आपकी चाल समाप्त"
     },
+    "notifications": {
+      "healthAttack": "You are under attack! Your opponent is dealing {{damage}} damage to your health.",
+      "unitAttack": "You are under attack! Your opponent is attacking your {{card}} card."
+    },
     "gameOver": {
       "title": "खेल समाप्त",
       "surrendered": "आपने हार मान ली",
@@ -60,7 +64,8 @@
       "strategicShuffle": "रणनीतिक शफल",
       "cancel": "रद्द करें",
       "confirm": "पुष्टि करें",
-      "opponentCards": "प्रतिद्वंद्वी के ताश"
+      "opponentCards": "प्रतिद्वंद्वी के ताश",
+      "acknowledge": "OK"
     },
     "attack": {
       "chooseAttack": "अपना हमला चुनें",
@@ -86,7 +91,9 @@
       "block": "हमला ब्लॉक करें",
       "decline": "हमले को अनुमति दें",
       "noJokers": "आपके पास ब्लॉक करने के लिए कोई जोकर नहीं है।"
-    }
+    },
+    "timeRemaining": "Time Remaining",
+    "health": "Health"
   },
   "home": {
     "presentation": {
@@ -993,5 +1000,12 @@
         ]
       }
     ]
+  },
+  "attack": {
+    "attackHealth": "Attack Health",
+    "attackUnit": "Attack Unit",
+    "blocked": "Blocked",
+    "success": "Attack Successful",
+    "blockedMessage": "This attack was blocked by the opponent."
   }
 }

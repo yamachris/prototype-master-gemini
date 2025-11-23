@@ -69,7 +69,9 @@ export const AttackNotification: React.FC<AttackNotificationProps> = ({
       <div className="attack-notification">
         <div className="notification-header">
           <h2>
-            {attackType === "unit" ? "🗡️ Unit Attack!" : "❤️ Health Attack!"}
+            {attackType === "unit"
+              ? `🗡️ ${t("game.notifications.unitAttackTitle")}`
+              : `❤️ ${t("game.notifications.healthAttackTitle")}`}
           </h2>
           <div className="timer">{timeRemaining}s</div>
         </div>
@@ -90,7 +92,7 @@ export const AttackNotification: React.FC<AttackNotificationProps> = ({
             {isHealthAttack ? (
               <div className="health-damage">
                 <div className="damage-value">-{target.cardValue}</div>
-                <div className="damage-label">Health Points</div>
+                <div className="damage-label">{t("game.attack.healthPoints")}</div>
               </div>
             ) : (
               <div className="unit-target">
@@ -108,13 +110,13 @@ export const AttackNotification: React.FC<AttackNotificationProps> = ({
         <div className="notification-message">
           {isHealthAttack
             ? t("game.notifications.healthAttack", {
-                damage: target.cardValue,
-                defaultValue: `You are under attack! Your opponent is dealing {{damage}} damage to your health.`,
-              })
+              damage: target.cardValue,
+              defaultValue: `You are under attack! Your opponent is dealing {{damage}} damage to your health.`,
+            })
             : t("game.notifications.unitAttack", {
-                card: `${target.cardValue}${getSuitSymbol(target.suit || "")}`,
-                defaultValue: `You are under attack! Your opponent is attacking your {{card}} card.`,
-              })}
+              card: `${target.cardValue}${getSuitSymbol(target.suit || "")}`,
+              defaultValue: `You are under attack! Your opponent is attacking your {{card}} card.`,
+            })}
         </div>
 
         <button className="acknowledge-button" onClick={onClose}>

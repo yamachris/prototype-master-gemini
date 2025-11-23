@@ -38,6 +38,12 @@
       "valetPassive": "Valet passif - Ne peut pas attaquer ce tour",
       "valetActive": "Cliquez pour attaquer avec le Valet"
     },
+    "notifications": {
+      "healthAttack": "Vous êtes attaqué ! Votre adversaire inflige {{damage}} dégâts à votre santé.",
+      "unitAttack": "Vous êtes attaqué ! Votre adversaire attaque votre carte {{card}}.",
+      "unitAttackTitle": "Attaque d'Unité !",
+      "healthAttackTitle": "Attaque Directe !"
+    },
     "gameOver": {
       "title": "Partie Terminée",
       "surrendered": "Vous avez abandonné",
@@ -104,7 +110,8 @@
       "strategicShuffle": "Mélange Stratégique",
       "cancel": "Annuler",
       "confirm": "Confirmer",
-      "opponentCards": "Cartes de l'adversaire"
+      "opponentCards": "Cartes de l'adversaire",
+      "acknowledge": "OK"
     },
     "attack": {
       "chooseAttack": "Choisissez votre attaque",
@@ -116,8 +123,17 @@
         "unitAlreadyAttacked": "Cette unité a déjà attaqué",
         "protectedByKing": "Protégé par le Roi",
         "cardNotAvailable": "Carte non disponible en main",
-        "invalidHealthAttackCard": "Cette carte ne peut pas être utilisée pour les attaques de points de vie"
-      }
+        "invalidHealthAttackCard": "Cette carte ne peut pas être utilisée pour attaquer les points de vie"
+      },
+      "damagePoints": "Points de Dégâts",
+      "healthPoints": "Points de Vie",
+      "attackHealthDescription": "Attaquer les points de vie de l'adversaire",
+      "damageWarning": "Votre attaque infligera {{damage}} points de dégâts à votre adversaire"
+    },
+    "sacrifice": {
+      "title": "Sacrifier des unités pour jouer une carte spéciale",
+      "selectCards": "Sélectionnez {{count}} cartes à sacrifier",
+      "selectCardsOnField": "Sélectionnez les cartes que vous avez jouées sur le terrain (dans l'ordre décroissant pour une même suite)"
     },
     "block": {
       "title": "Bloquer avec un Joker ou 7 de chance ?",
@@ -130,7 +146,9 @@
       "block": "Bloquer l'Attaque",
       "decline": "Laisser Passer l'Attaque",
       "noJokers": "Vous n'avez pas de Jokers pour bloquer."
-    }
+    },
+    "timeRemaining": "Temps restant",
+    "health": "Santé"
   },
   "home": {
     "presentation": {
@@ -1278,5 +1296,12 @@
         ]
       }
     ]
+  },
+  "attack": {
+    "attackHealth": "Attaque Directe",
+    "attackUnit": "Attaque d'Unité",
+    "blocked": "Bloqué",
+    "success": "Attaque Réussie",
+    "blockedMessage": "Cette attaque a été bloquée par l'adversaire."
   }
 }

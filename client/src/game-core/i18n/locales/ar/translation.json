@@ -539,6 +539,10 @@
       "strategicShuffleFirst": "أول خلط استراتيجي! ⚠️ الاستخدام التالي سينهي دورك.",
       "strategicShuffleNext": "تم الخلط الاستراتيجي - نهاية دورك"
     },
+    "notifications": {
+      "healthAttack": "You are under attack! Your opponent is dealing {{damage}} damage to your health.",
+      "unitAttack": "You are under attack! Your opponent is attacking your {{card}} card."
+    },
     "gameOver": {
       "title": "انتهت اللعبة",
       "surrendered": "لقد استسلمت",
@@ -577,7 +581,8 @@
       "strategicShuffle": "الخلط الاستراتيجي",
       "cancel": "إلغاء",
       "confirm": "تأكيد",
-      "opponentCards": "بطاقات الخصم"
+      "opponentCards": "بطاقات الخصم",
+      "acknowledge": "OK"
     },
     "attack": {
       "chooseAttack": "اختر هجومك",
@@ -602,6 +607,15 @@
       "decline": "السماح بالهجوم",
       "noJokers": "ليس لديك أي جوكر للمنع.",
       "lucky7": "Lucky 7"
-    }
+    },
+    "timeRemaining": "Time Remaining",
+    "health": "Health"
+  },
+  "attack": {
+    "attackHealth": "Attack Health",
+    "attackUnit": "Attack Unit",
+    "blocked": "Blocked",
+    "success": "Attack Successful",
+    "blockedMessage": "This attack was blocked by the opponent."
   }
 }

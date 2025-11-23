@@ -22,6 +22,10 @@
       "strategicShuffleFirst": "首次使用戰略洗牌！⚠️ 下一次使用將直接結束你的回合。",
       "strategicShuffleNext": "戰略洗牌完成 — 回合結束。"
     },
+    "notifications": {
+      "healthAttack": "You are under attack! Your opponent is dealing {{damage}} damage to your health.",
+      "unitAttack": "You are under attack! Your opponent is attacking your {{card}} card."
+    },
     "gameOver": {
       "title": "遊戲結束",
       "surrendered": "你已選擇投降",
@@ -60,7 +64,8 @@
       "strategicShuffle": "戰略洗牌",
       "cancel": "取消",
       "confirm": "確認",
-      "opponentCards": "對手的牌勢"
+      "opponentCards": "對手的牌勢",
+      "acknowledge": "OK"
     },
     "attack": {
       "chooseAttack": "選擇你要發動的攻擊。",
@@ -84,7 +89,9 @@
       "block": "阻擋攻擊",
       "decline": "允許攻擊",
       "noJokers": "你沒有可用的王牌。"
-    }
+    },
+    "timeRemaining": "Time Remaining",
+    "health": "Health"
   },
   "home": {
     "presentation": {
@@ -991,5 +998,12 @@
         ]
       }
     ]
+  },
+  "attack": {
+    "attackHealth": "Attack Health",
+    "attackUnit": "Attack Unit",
+    "blocked": "Blocked",
+    "success": "Attack Successful",
+    "blockedMessage": "This attack was blocked by the opponent."
   }
 }

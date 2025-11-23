@@ -22,6 +22,10 @@
       "strategicShuffleFirst": "Первое стратегическое перетасовывание! ⚠️ Следующее использование завершит ваш ход.",
       "strategicShuffleNext": "Стратегическое перетасовывание выполнено - Ваш ход завершён"
     },
+    "notifications": {
+      "healthAttack": "You are under attack! Your opponent is dealing {{damage}} damage to your health.",
+      "unitAttack": "You are under attack! Your opponent is attacking your {{card}} card."
+    },
     "gameOver": {
       "title": "Игра окончена",
       "surrendered": "Вы сдались",
@@ -60,7 +64,8 @@
       "strategicShuffle": "Стратегическое перетасовывание",
       "cancel": "Отмена",
       "confirm": "Подтвердить",
-      "opponentCards": "Карты противника"
+      "opponentCards": "Карты противника",
+      "acknowledge": "OK"
     },
     "attack": {
       "chooseAttack": "Выберите атаку",
@@ -86,7 +91,9 @@
       "block": "Заблокировать атаку",
       "decline": "Пропустить атаку",
       "noJokers": "У вас нет Джокеров для блокировки."
-    }
+    },
+    "timeRemaining": "Time Remaining",
+    "health": "Health"
   },
   "home": {
     "presentation": {
@@ -1223,5 +1230,12 @@
         ]
       }
     ]
+  },
+  "attack": {
+    "attackHealth": "Attack Health",
+    "attackUnit": "Attack Unit",
+    "blocked": "Blocked",
+    "success": "Attack Successful",
+    "blockedMessage": "This attack was blocked by the opponent."
   }
 }

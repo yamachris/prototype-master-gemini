@@ -22,6 +22,10 @@
       "strategicShuffleFirst": "Erstes Strategisches Mischen! ⚠️ Die nächste Nutzung lässt dich deinen Zug aussetzen.",
       "strategicShuffleNext": "Strategisches Mischen abgeschlossen - Ende deines Zuges"
     },
+    "notifications": {
+      "healthAttack": "Du wirst angegriffen! Dein Gegner fügt deiner Gesundheit {{damage}} Schaden zu.",
+      "unitAttack": "Du wirst angegriffen! Dein Gegner greift deine {{card}} Karte an."
+    },
     "gameOver": {
       "title": "Spiel Vorbei",
       "surrendered": "Du hast aufgegeben",
@@ -69,7 +73,8 @@
       "strategicShuffle": "Strategisches Mischen",
       "cancel": "Abbrechen",
       "confirm": "Bestätigen",
-      "opponentCards": "Karten des Gegners"
+      "opponentCards": "Karten des Gegners",
+      "acknowledge": "OK"
     },
     "attack": {
       "chooseAttack": "Wähle deinen Angriff",
@@ -95,7 +100,9 @@
       "block": "Angriff Blocken",
       "decline": "Angriff Zulassen",
       "noJokers": "Du hast keine Joker zum Blocken."
-    }
+    },
+    "timeRemaining": "Time Remaining",
+    "health": "Health"
   },
   "home": {
     "presentation": {
@@ -1232,5 +1239,12 @@
         ]
       }
     ]
+  },
+  "attack": {
+    "attackHealth": "Attack Health",
+    "attackUnit": "Attack Unit",
+    "blocked": "Blocked",
+    "success": "Attack Successful",
+    "blockedMessage": "This attack was blocked by the opponent."
   }
 }

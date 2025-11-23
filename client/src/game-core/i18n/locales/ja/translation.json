@@ -22,6 +22,10 @@
       "strategicShuffleFirst": "最初の戦略的シャッフル！⚠️ 次回の使用であなたのターンがスキップされます。",
       "strategicShuffleNext": "戦略的シャッフル完了 - あなたのターンの終了"
     },
+    "notifications": {
+      "healthAttack": "You are under attack! Your opponent is dealing {{damage}} damage to your health.",
+      "unitAttack": "You are under attack! Your opponent is attacking your {{card}} card."
+    },
     "gameOver": {
       "title": "ゲーム終了",
       "surrendered": "降参しました",
@@ -60,7 +64,8 @@
       "strategicShuffle": "戦略的シャッフル",
       "cancel": "キャンセル",
       "confirm": "確認",
-      "opponentCards": "相手のカード"
+      "opponentCards": "相手のカード",
+      "acknowledge": "OK"
     },
     "attack": {
       "chooseAttack": "攻撃を選択してください",
@@ -86,7 +91,9 @@
       "block": "攻撃をブロック",
       "decline": "攻撃を許可",
       "noJokers": "ブロックするジョーカーがありません。"
-    }
+    },
+    "timeRemaining": "Time Remaining",
+    "health": "Health"
   },
   "home": {
     "presentation": {
@@ -1223,5 +1230,12 @@
         ]
       }
     ]
+  },
+  "attack": {
+    "attackHealth": "Attack Health",
+    "attackUnit": "Attack Unit",
+    "blocked": "Blocked",
+    "success": "Attack Successful",
+    "blockedMessage": "This attack was blocked by the opponent."
   }
 }

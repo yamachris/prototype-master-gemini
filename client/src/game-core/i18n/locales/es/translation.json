@@ -22,6 +22,10 @@
       "strategicShuffleFirst": "¡Primer Barajado Estratégico! ⚠️ El próximo uso hará que pierdas tu turno.",
       "strategicShuffleNext": "Barajado estratégico realizado - Fin de tu turno"
     },
+    "notifications": {
+      "healthAttack": "You are under attack! Your opponent is dealing {{damage}} damage to your health.",
+      "unitAttack": "You are under attack! Your opponent is attacking your {{card}} card."
+    },
     "gameOver": {
       "title": "Fin del Juego",
       "surrendered": "Te has rendido",
@@ -69,7 +73,8 @@
       "strategicShuffle": "Barajado Estratégico",
       "cancel": "Cancelar",
       "confirm": "Confirmar",
-      "opponentCards": "Cartas del Oponente"
+      "opponentCards": "Cartas del Oponente",
+      "acknowledge": "OK"
     },
     "attack": {
       "chooseAttack": "Elige tu ataque",
@@ -95,7 +100,9 @@
       "block": "Bloquear Ataque",
       "decline": "Permitir Ataque",
       "noJokers": "No tienes Comodines para bloquear."
-    }
+    },
+    "timeRemaining": "Time Remaining",
+    "health": "Health"
   },
   "home": {
     "presentation": {
@@ -1232,5 +1239,12 @@
         ]
       }
     ]
+  },
+  "attack": {
+    "attackHealth": "Attack Health",
+    "attackUnit": "Attack Unit",
+    "blocked": "Blocked",
+    "success": "Attack Successful",
+    "blockedMessage": "This attack was blocked by the opponent."
   }
 }

@@ -28,6 +28,12 @@
       "blockWithJokerSuccess": "Attack blocked with a Joker!",
       "blockWithSevenSuccess": "Attack blocked with a Seven card!"
     },
+    "notifications": {
+      "healthAttack": "You are under attack! Your opponent is dealing {{damage}} damage to your health.",
+      "unitAttack": "You are under attack! Your opponent is attacking your {{card}} card.",
+      "unitAttackTitle": "Unit Attack!",
+      "healthAttackTitle": "Health Attack!"
+    },
     "gameOver": {
       "title": "Game Over",
       "surrendered": "You surrendered",
@@ -94,7 +100,8 @@
       "strategicShuffle": "Strategic Shuffle",
       "cancel": "Cancel",
       "confirm": "Confirm",
-      "opponentCards": "Opponent's cards"
+      "opponentCards": "Opponent's cards",
+      "acknowledge": "OK"
     },
     "attack": {
       "chooseAttack": "Choose your attack",
@@ -107,7 +114,16 @@
         "protectedByKing": "Protected by King",
         "cardNotAvailable": "Card not available in hand",
         "invalidHealthAttackCard": "This card cannot be used for health attacks"
-      }
+      },
+      "damagePoints": "Damage Points",
+      "healthPoints": "Health Points",
+      "attackHealthDescription": "Attack opponent's health points",
+      "damageWarning": "Your attack will deal {{damage}} damage points to your opponent"
+    },
+    "sacrifice": {
+      "title": "Sacrifice units to play a special card",
+      "selectCards": "Select {{count}} cards to sacrifice",
+      "selectCardsOnField": "Select cards you have played on the field (in descending order for the same suit)"
     },
     "block": {
       "title": "Block with Joker or Lucky Seven?",
@@ -120,7 +136,9 @@
       "block": "Block Attack",
       "decline": "Let Attack Pass",
       "noJokers": "You don't have Jokers to block."
-    }
+    },
+    "timeRemaining": "Time Remaining",
+    "health": "Health"
   },
   "home": {
     "presentation": {
@@ -1257,5 +1275,12 @@
         ]
       }
     ]
+  },
+  "attack": {
+    "attackHealth": "Attack Health",
+    "attackUnit": "Attack Unit",
+    "blocked": "Blocked",
+    "success": "Attack Successful",
+    "blockedMessage": "This attack was blocked by the opponent."
   }
 }

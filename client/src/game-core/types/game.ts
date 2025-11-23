@@ -221,12 +221,14 @@ export interface GameMessage {
 
 // attack Target  type
 export type AttackTarget = {
-  suit: Suit;
+  suit?: Suit;
   cardValue?: string;
   column?: ColumnState;
   attackType?: string;
-  valid: boolean;
+  valid?: boolean;
   reason?: string;
+  type?: string;
+  card?: Card;
 };
 
 export type blockRequestData = {

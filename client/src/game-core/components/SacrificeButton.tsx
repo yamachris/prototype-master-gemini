@@ -1,10 +1,14 @@
+"use client";
+
 import React from "react";
 import { useGameStore } from "../store/GameStore";
+import { useTranslation } from "react-i18next";
 import "./SacrificeButton.css";
 
 export function SacrificeButton() {
   const { selectedCards, phase, hasPlayedAction, setSacrificeMode } =
     useGameStore();
+  const { t } = useTranslation();
 
   const specialCard = selectedCards[0];
   const isSpecialCard =
@@ -25,7 +29,7 @@ export function SacrificeButton() {
       onClick={handleClick}
       disabled={!canSacrifice}
       className="sacrifice-button"
-      title="Sacrifier des unités pour jouer une carte spéciale"
+      title={t("game.sacrifice.title")}
     >
       Sacrifier
     </button>
